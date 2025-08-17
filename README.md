@@ -38,14 +38,29 @@ sudo chmod 777 waydroid_osmand_rendering
 
 ## Rendering
 
+- Goal: multi-purpose, but hiking is important
 - based on UniMap (basings/OsmAnd-custom-map-styles) and routes.addon.render.xml
 - recommended: More details On
 - less vibrant colors of larger areas (forests,...)
+- smaller power tower icons
+- hiking (+fitness+running) routes: remove cap=ROUND
 
 
 
 ## TODO
-- smaller power tower icons
+- other parts of UniMap? (buildings, random house numbers, ...)
+- blue (?) parking spaces
+- some roads in tunnels not shown?
+- thinner more vibrant hiking routes, from larger zoom
+- smaller (hiking) routes shields, maybe from larget zoom
+- smaller text
+- via ferrata?
+- more visible train
+- less visible tram
+- option for subway (and public transport in general?)
+- mark important buildings (church, castle, school, court, hospital, shopping center, ...)
+- maybe smaller icons (smaller padding?)
+- change icon priority?
 
 ## Notes, tips, snippets
 Hiding cliffs:
