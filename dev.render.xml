@@ -1745,7 +1745,6 @@
 						<case additional="route_hiking_#SEQ_osmc_waycolor=pink" color="$osmcPinkColor"/>
 						<case additional="route_hiking_#SEQ_osmc_waycolor=teal" color="$osmcTealColor"/>
 					</switch>
-					<apply_if minzoom="13" cap="ROUND"/>
 				</apply_if>
 				<apply_if hikingRoutesOSMC="walkingRoutesOSMCNodes" minzoom="12">
 					<case additional="hiking_node_network=iwn" color="$iwnNodeNetworkColor"/>
@@ -1790,7 +1789,7 @@
 			<apply_if minzoom="18" strokeWidth="13:13"/>
 		</switch>
 
-		<switch hikingRoutesOSMC="walkingRoutesScopeOSMC" cap="ROUND">
+		<switch hikingRoutesOSMC="walkingRoutesScopeOSMC">
 			<case minzoom="12" tag="network_iwn" value="" color="$iwnColor">
 				<apply_if maxzoom="12" strokeWidth="6"/>
 				<apply_if minzoom="13" maxzoom="13" strokeWidth="8"/>
@@ -1827,7 +1826,6 @@
 		</switch>
 		<switch>
 			<case showFitnessTrails="true" tag="route_fitness_trail" value="" color="$fitnessTrailDefaultColor"/>
-			<apply cap="ROUND"/>
 			<apply_if maxzoom="13" strokeWidth="3" pathEffect="6_4"/>
 			<apply_if minzoom="14" maxzoom="14" strokeWidth="4" pathEffect="7_5"/>
 			<apply_if minzoom="15" maxzoom="16" strokeWidth="5" pathEffect="8_6"/>
@@ -1849,7 +1847,6 @@
 					<case additional="route_running_#SEQ_osmc_waycolor=teal" color="$osmcTealColor"/>
 				</switch>
 			</apply>
-			<apply cap="ROUND"/>
 			<apply_if maxzoom="13" strokeWidth="3" pathEffect="2_6"/>
 			<apply_if minzoom="14" maxzoom="14" strokeWidth="4" pathEffect="3_7"/>
 			<apply_if minzoom="15" maxzoom="16" strokeWidth="5" pathEffect="3_8"/>
