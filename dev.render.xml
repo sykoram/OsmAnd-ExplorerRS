@@ -160,52 +160,6 @@
 	</renderingAttribute>
 
 
-	<renderingAttribute name="osmcBlackColor">
-		<case engine_v1="true" attrColorValue="#66000000"/>
-		<case attrColorValue="#44000000"/>
-	</renderingAttribute>
-	<renderingAttribute name="osmcBlueColor">
-		<case engine_v1="true" attrColorValue="#660000ff"/>
-		<case attrColorValue="#440000ff"/>
-	</renderingAttribute>
-	<renderingAttribute name="osmcGreenColor">
-		<case engine_v1="true" attrColorValue="#6600ff00"/>
-		<case attrColorValue="#4400ff00"/>
-	</renderingAttribute>
-	<renderingAttribute name="osmcRedColor">
-		<case engine_v1="true" attrColorValue="#66ff0000"/>
-		<case attrColorValue="#44ff0000"/>
-	</renderingAttribute>
-	<renderingAttribute name="osmcYellowColor">
-		<case engine_v1="true" attrColorValue="#99ffff00"/>
-		<case attrColorValue="#44ffff00"/>
-	</renderingAttribute>
-	<renderingAttribute name="osmcOrangeColor">
-		<case engine_v1="true" attrColorValue="#88ffba00"/>
-		<case attrColorValue="#66ffba00"/>
-	</renderingAttribute>
-	<renderingAttribute name="osmcBrownColor">
-		<case engine_v1="true" attrColorValue="#66705409"/>
-		<case attrColorValue="#44705409"/>
-	</renderingAttribute>
-	<renderingAttribute name="osmcPurpleColor">
-		<case engine_v1="true" attrColorValue="#66ab00d6"/>
-		<case attrColorValue="#44ab00d6"/>
-	</renderingAttribute>
-	<renderingAttribute name="osmcPinkColor">
-		<case engine_v1="true" attrColorValue="#66F765AF"/>
-		<case attrColorValue="#44F765AF"/>
-	</renderingAttribute>
-	<renderingAttribute name="osmcTealColor">
-		<case engine_v1="true" attrColorValue="#66007C7C"/>
-		<case attrColorValue="#44007C7C"/>
-	</renderingAttribute>
-	<renderingAttribute name="osmcDefaultColor">
-		<case engine_v1="true" attrColorValue="#660058a2"/>
-		<case attrColorValue="#280058a2"/>
-	</renderingAttribute>
-
-
 	<!-- Motorway  -->
 	<!-- <renderingAttribute name="motorwayRoadColor">
 		<case roadStyle="yellowRoads" attrColorValue="#F7A126">
