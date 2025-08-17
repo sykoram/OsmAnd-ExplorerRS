@@ -53,14 +53,18 @@ sudo chmod 777 waydroid_osmand_rendering
 - some roads in tunnels not shown?
 - thinner more vibrant hiking routes, from larger zoom
 - smaller (hiking) routes shields, maybe from larget zoom
-- smaller text
+- sidewalks from larger zoom
+- foot & cyclo paths style
+- smaller text (incl. contour lines)
 - via ferrata?
 - more visible train
 - less visible tram
 - option for subway (and public transport in general?)
 - mark important buildings (church, castle, school, court, hospital, shopping center, ...)
-- maybe smaller icons (smaller padding?)
+- maybe smaller icons (smaller padding? not in circle?)
 - change icon priority?
+- border style?
+
 
 ## Notes, tips, snippets
 Hiding cliffs:
