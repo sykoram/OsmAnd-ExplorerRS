@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<renderingStyle name="TuristCZ" depends="default" defaultColor="#f1eae4" version="4.1">
+
+	<!-- Forest -->
+	<renderingAttribute name="woodColor">
+		<case attrColorValue="#c2d1bc">
+			<apply_if nightMode="true" attrColorValue="#001122"/>
+		</case>
+	</renderingAttribute>
+	<renderingAttribute name="forestColor">
+		<case attrColorValue="#abc59a">
+			<apply_if nightMode="true" attrColorValue="#001122"/>
+		</case>
+	</renderingAttribute>
+
+	<!-- Open nature -->
+      	<renderingAttribute name="meadowColor">
+	         <case nightMode="true" attrColorValue="$woodColor"/>
+	         <case attrColorValue="#dfeccf"/>
+	</renderingAttribute>
+        <renderingAttribute name="farmColor">
+		<case nightMode="true" attrColorValue="#004333"/>
+		<case attrColorValue="#f6e8d4"/>
+	</renderingAttribute>
+        <renderingAttribute name="waterColor">
+		<case nightMode="true" attrColorValue="#103866"/>
+		<case attrColorValue="#aad3df"/>
+	</renderingAttribute>
+
+        <!-- Motorway  -->
+        <renderingAttribute name="motorwayRoadColor">
+        <case roadStyle="highContrastRoads" attrColorValue="#ffffff">
+		<apply_if nightMode="true" attrColorValue="#9f9f9f"/>
+        </case>
+        </renderingAttribute>
+	<renderingAttribute name="motorwayRoadLowZoomColor">
+        <case roadStyle="highContrastRoads" attrColorValue="#ffffff">
+		<apply_if nightMode="true" attrColorValue="#9f9f9f"/>
+        </case>
+        </renderingAttribute>
+
+        <!-- Trunk  -->
+        <renderingAttribute name="trunkRoadColor">
+        <case roadStyle="highContrastRoads" attrColorValue="#ffffff">
+		<apply_if nightMode="true" attrColorValue="#9f9f9f"/>
+        </case>
+        </renderingAttribute>
+	<renderingAttribute name="trunkRoadLowZoomColor">
+        <case roadStyle="highContrastRoads" attrColorValue="#ffffff">
+		<apply_if nightMode="true" attrColorValue="#9f9f9f"/>
+        </case>
+        </renderingAttribute>
+
+        <!-- Primary  -->
+        <renderingAttribute name="primaryRoadColor">
+        <case roadStyle="highContrastRoads" attrColorValue="#ffffff">
+		<apply_if nightMode="true" attrColorValue="#9f9f9f"/>
+        </case>
+        </renderingAttribute>
+	<renderingAttribute name="primaryRoadLowZoomColor">
+        <case roadStyle="highContrastRoads" attrColorValue="#ffffff">
+		<apply_if nightMode="true" attrColorValue="#9f9f9f"/>
+        </case>
+        </renderingAttribute>
+
+        <!-- Secondary  -->
+        <renderingAttribute name="secondaryRoadColor">
+        <case roadStyle="highContrastRoads" attrColorValue="#ffffff">
+		<apply_if nightMode="true" attrColorValue="#9f9f9f"/>
+        </case>
+        </renderingAttribute>
+	<renderingAttribute name="secondaryRoadLowZoomColor">
+        <case roadStyle="highContrastRoads" attrColorValue="#ffffff">
+		<apply_if nightMode="true" attrColorValue="#9f9f9f"/>
+        </case>
+        </renderingAttribute>
+
+        <!-- Tertiary  -->
+        <renderingAttribute name="tertiaryRoadColor">
+        <case roadStyle="highContrastRoads" attrColorValue="#ffffff">
+		<apply_if nightMode="true" attrColorValue="#9f9f9f"/>
+        </case>
+        </renderingAttribute>
+	<renderingAttribute name="tertiaryRoadLowZoomColor">
+        <case roadStyle="highContrastRoads" attrColorValue="#ffffff">
+		<apply_if nightMode="true" attrColorValue="#9f9f9f"/>
+        </case>
+        </renderingAttribute>
+
+	<!-- Text -->
+	<renderingConstant name="black" value="#000000"/>
+	<renderingConstant name="white" value="#ffffff"/>
+	<renderingAttribute name="highwayMotorwayTextColor">
+		<case attrColorValue="$black"/>
+	</renderingAttribute>
+	<renderingAttribute name="highwayTrunkTextColor">
+		<case attrColorValue="$black"/>
+	</renderingAttribute>
+	<renderingAttribute name="highwayPrimaryTextColor">
+		<case attrColorValue="$black"/>
+	</renderingAttribute>
+	<renderingAttribute name="highwaySecondaryTextColor">
+		<case attrColorValue="$black"/>
+	</renderingAttribute>
+	<renderingAttribute name="highwayTertiaryTextColor">
+		<case attrColorValue="$black"/>
+	</renderingAttribute>
+	<renderingAttribute name="highwayResidentialServiceTextColor">
+		<case attrColorValue="$black"/>
+	</renderingAttribute>
+</renderingStyle>
