@@ -38,7 +38,7 @@ sudo chmod 777 waydroid_osmand_rendering
 
 ## Rendering
 
-- based on UniMap (basings/OsmAnd-custom-map-styles)
+- based on UniMap (basings/OsmAnd-custom-map-styles) and routes.addon.render.xml
 - recommended: More details On
 - less vibrant colors of larger areas (forests,...)
 
