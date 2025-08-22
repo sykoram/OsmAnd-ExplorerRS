@@ -51,7 +51,7 @@
 		
 		default iconOrder=90
 
-    ignoreClick (default=false) filters out "non-clickable" objects for App click-on-map (applicable to text/icons)
+    	ignoreClick (default=false) filters out "non-clickable" objects for App click-on-map (applicable to text/icons)
 
 		Explanation of strokeWidth="dp:dx": dp scales with the screen dpi, dx directly specifies physical pixels.
 			Scaling factors for dp:
