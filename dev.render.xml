@@ -273,15 +273,15 @@
 
 	<!-- Buildings text (names, house numbers) -->
 	<text>
+		<!-- hide completely: power=substation -->
+		<switch>
+			<case tag="power" value="substation" nameTag=""/>
+			<case tag="power" value="substation" nameTag="ref"/>
+			<case tag="power" value="substation" nameTag="name"/>
+			<case tag="power" value="substation" nameTag="operator"/>
+			<apply textSize="0"/>
+		</switch>
 		<switch textColor="$buildingTextColor" textHaloColor="$buildingTextHaloColor" textHaloRadius="$buildingTextHaloRadiusDay" textWrapWidth="20" textOrder="135">
-			<!-- hide completely: power=substation -->
-			<switch>
-				<case tag="power" value="substation" nameTag="ref"/>
-				<case tag="power" value="substation" nameTag=/>
-				<case tag="power" value="substation"/>
-				<!-- ... not enough for some reason -->
-				<apply textSize="0"/>
-			</switch>
 			<!-- tag="building" with name -->
 			<switch>
 				<case tag="military" value="barracks" nameTag=""/>
@@ -304,7 +304,7 @@
 				<apply_if engine_v1="true" textDy="7"/>
 			</switch>
 			<!-- tag="addr:housenumber" -->
-			<switch  textWrapWidth="25" textOrder="136">
+			<switch textWrapWidth="25" textOrder="136">
 				<case hideHouseNumbers="false" tag="addr:housenumber" value="" nameTag="" nameTag2="addr:housenumber"/>
 				<case hideHouseNumbers="false" tag="addr:housenumber" value="" nameTag="addr:housename" nameTag2="addr:housenumber"/>
 				<case hideHouseNumbers="false" tag="addr:housenumber" value="" nameTag="addr:housenumber"/>
@@ -330,7 +330,7 @@
 					</switch>
 					<apply_if engine_v1="true" textDy="7"/>
 				</case>
-				<switch textColor="#buildingTextColor" textWrapWidth="15">
+				<switch textWrapWidth="15">
 					<case tag="entrance" value="" nameTag="ref"/>
 					<case tag="entrance" value="" nameTag="addr:flats"/>
 					<case tag="entrance" value="" nameTag="" nameTag2="ref"/>
