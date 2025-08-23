@@ -1102,6 +1102,8 @@
 				</switch>
 				<!-- OSMC symbols -->
 				<switch minzoom="12" textMinDistance="101" textOnPath="false" textSize="12" textColor="#00ffffff" textOrder="43" seq="1:10">
+					<!-- completely disable for zoom 12 -->
+					<apply_if minzoom="12" maxzoom="12" disable="true"/>
 					<!-- Hiking -->
 					<switch>
 						<case hikingRoutesOSMC="walkingRoutesOSMC" tag="route_hiking" value="" nameTag="route_hiking_#SEQ_osmc_text"/>
@@ -1724,9 +1726,9 @@
 				</apply>
 			</switch>
 			<apply_if hikingRoutesOSMC="walkingRoutesScopeOSMC" color="$null"/>
-			<apply_if minzoom="12" maxzoom="12" strokeWidth="3.5:3.5"/>
-			<apply_if minzoom="13" maxzoom="13" strokeWidth="4.5:4.5"/>
-			<apply_if minzoom="14" maxzoom="14" strokeWidth="6:6"/>
+			<apply_if minzoom="12" maxzoom="12" strokeWidth="2.5:2.5"/>
+			<apply_if minzoom="13" maxzoom="13" strokeWidth="3.5:3.5"/>
+			<apply_if minzoom="14" maxzoom="14" strokeWidth="5.6:5.6"/>
 			<apply_if minzoom="15" maxzoom="15" strokeWidth="8:8"/>
 			<apply_if minzoom="16" maxzoom="16" strokeWidth="10:10"/>
 			<apply_if minzoom="17" maxzoom="17" strokeWidth="11:11"/>
