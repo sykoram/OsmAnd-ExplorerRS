@@ -174,7 +174,7 @@
 					<apply_if additional="layer=3" order="147"/>
 					<apply_if layer="-1" order="20"/>
 					<apply_if additional="layer=-2" order="19"/>
-		</case>
+				</case>
 				<case tag="highway" value="cycleway" order="65">
 					<!-- <apply_if baseAppMode="pedestrian" order="87"/> -->
 					<apply_if layer="1" order="109"/>
@@ -184,7 +184,7 @@
 					<apply_if additional="layer=-2" order="19"/>
 					<!-- <apply_if baseAppMode="bicycle" order="177"/>
 					<apply_if baseAppMode="default" moreDetailed="false" maxzoom="15" order="-1"/> -->
-		</case>
+				</case>
 				<!-- TODO: do we want  -->
 				<switch>
 					<case tag="cycleway" value=""/>
@@ -196,7 +196,7 @@
 						<apply_if additional="layer=3" order="167"/>
 						<apply_if layer="-1" order="42"/>
 						<apply_if additional="layer=-2" order="19"/>
-			</apply_if>
+					</apply_if>
 				</switch>
 				<!-- <case baseAppMode="pedestrian" tag="sidewalk" value="" order="89">
 					<apply_if layer="1" order="109"/>
@@ -208,7 +208,7 @@
 				<!-- no marks on roads with sidewalk="*" at all: -->
 				<case tag="sidewalk" value="" order="-1">
 					
-		</case>
+				</case>
 				<case baseAppMode="default" tag="cycleway" value="" moreDetailed="false" maxzoom="15" order="-1"/>
 				<case baseAppMode="default" tag="sidewalk" value="" moreDetailed="false" maxzoom="15" order="-1"/>
 				<switch>
@@ -216,12 +216,12 @@
 						<case tag="highway" value="path" order="64">
 							<!-- <apply_if minzoom="14" baseAppMode="pedestrian" order="86"/>
 							<apply_if baseAppMode="bicycle" order="86"/> -->
-		</case>
+						</case>
 						<case tag="highway" value="footway" order="64">
 							<!-- <apply_if minzoom="14" baseAppMode="pedestrian" order="86"/> -->
 							<!-- <apply_if baseAppMode="bicycle" additional="bicycle=designated" order="88" /> -->
 							<!-- <apply_if additional="footway=crossing" order="85"/> -->
-		</case>
+						</case>
 						<case tag="highway" value="bridleway" order="53">
 							<!-- <apply_if minzoom="14" baseAppMode="pedestrian" order="87"/> -->
 						</case>
@@ -243,7 +243,7 @@
 						<apply_if baseAppMode="default" moreDetailed="false">
 							<apply_if minzoom="15" maxzoom="15" order="-1"/>
 							<apply_if additional="conveying=yes" layer="-1" maxzoom="16" order="-1"/>
-			</apply_if>
+						</apply_if>
 						<apply_if layer="1" order="111">
 							<apply_if maxzoom="15" order="66"/>
 							<apply_if baseAppMode="default" moreDetailed="false" maxzoom="15" order="-1"/>
@@ -262,7 +262,7 @@
 				<!-- TODO: display via ferratas at lower zoom? -->
 				<case tag="highway" value="via_ferrata">
 					<apply_if moreDetailed="false" maxzoom="15" order="-1"/>
-		</case>
+				</case>
 			</switch>
 		</switch>
 	</order>
