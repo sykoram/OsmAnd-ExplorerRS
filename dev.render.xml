@@ -161,105 +161,111 @@
 		<case attrColorValue="#88ff0000"/>
 	</renderingAttribute>
 
-
-	<!-- Motorway  -->
-	<!-- <renderingAttribute name="motorwayRoadColor">
-		<case roadStyle="yellowRoads" attrColorValue="#F7A126">
-			<apply_if additional="tunnel=yes" attrColorValue="#EEAF9A"/>
-			<apply_if additional="covered=yes" attrColorValue="#EEAF9A"/>
-			<apply_if nightMode="true" attrColorValue="#B44036">
-				<apply_if additional="tunnel=yes" attrColorValue="#79413C"/>
-				<apply_if additional="covered=yes" attrColorValue="#79413C"/>
+	<order>
+		<!-- Lines -->
+		<switch area="false" objectType="2" order="80">
+			<!-- pedestrian/cycle paths: copied from default.render, modified (mostly commented some parts out) -->
+			<switch>
+				<case tag="highway" value="track" order="64">
+					<!-- <apply_if baseAppMode="pedestrian" order="85"/>
+					<apply_if baseAppMode="bicycle" order="87"/> -->
+					<apply_if layer="1" order="89"/>
+					<apply_if additional="layer=2" order="119"/>
+					<apply_if additional="layer=3" order="147"/>
+					<apply_if layer="-1" order="20"/>
+					<apply_if additional="layer=-2" order="19"/>
+		</case>
+				<case tag="highway" value="cycleway" order="65">
+					<!-- <apply_if baseAppMode="pedestrian" order="87"/> -->
+					<apply_if layer="1" order="109"/>
+					<apply_if additional="layer=2" order="139"/>
+					<apply_if additional="layer=3" order="146"/>
+					<apply_if layer="-1" order="42"/>
+					<apply_if additional="layer=-2" order="19"/>
+					<!-- <apply_if baseAppMode="bicycle" order="177"/>
+					<apply_if baseAppMode="default" moreDetailed="false" maxzoom="15" order="-1"/> -->
+		</case>
+				<!-- TODO: do we want  -->
+				<switch>
+					<case tag="cycleway" value=""/>
+					<case tag="cycleway:both" value=""/>
+					<apply order="-1"/>
+					<apply_if baseAppMode="bicycle" order="88">
+						<apply_if layer="1" order="109"/>
+						<apply_if additional="layer=2" order="139"/>
+						<apply_if additional="layer=3" order="167"/>
+						<apply_if layer="-1" order="42"/>
+						<apply_if additional="layer=-2" order="19"/>
 			</apply_if>
+				</switch>
+				<!-- <case baseAppMode="pedestrian" tag="sidewalk" value="" order="89">
+					<apply_if layer="1" order="109"/>
+					<apply_if additional="layer=2" order="139"/>
+					<apply_if additional="layer=3" order="167"/>
+					<apply_if layer="-1" order="42"/>
+					<apply_if additional="layer=-2" order="19"/>
+				</case> -->
+				<!-- no marks on roads with sidewalk="*" at all: -->
+				<case tag="sidewalk" value="" order="-1">
+					
 		</case>
-	</renderingAttribute>
-	<renderingAttribute name="motorwayRoadLowZoomColor">
-		<case roadStyle="yellowRoads" attrColorValue="#F7A126">
-			<apply_if additional="tunnel=yes" attrColorValue="#FBFF97"/>
-			<apply_if additional="covered=yes" attrColorValue="#FBFF97"/>
-			<apply_if nightMode="true" attrColorValue="#f7fe2e">
-				<apply_if baseAppMode="car" attrColorValue="#c6cc26"/>
-				<apply_if additional="tunnel=yes" attrColorValue="#E2E901"/>
-				<apply_if additional="covered=yes" attrColorValue="#E2E901"/>
+				<case baseAppMode="default" tag="cycleway" value="" moreDetailed="false" maxzoom="15" order="-1"/>
+				<case baseAppMode="default" tag="sidewalk" value="" moreDetailed="false" maxzoom="15" order="-1"/>
+				<switch>
+					<switch>
+						<case tag="highway" value="path" order="64">
+							<!-- <apply_if minzoom="14" baseAppMode="pedestrian" order="86"/>
+							<apply_if baseAppMode="bicycle" order="86"/> -->
+		</case>
+						<case tag="highway" value="footway" order="64">
+							<!-- <apply_if minzoom="14" baseAppMode="pedestrian" order="86"/> -->
+							<!-- <apply_if baseAppMode="bicycle" additional="bicycle=designated" order="88" /> -->
+							<!-- <apply_if additional="footway=crossing" order="85"/> -->
+		</case>
+						<case tag="highway" value="bridleway" order="53">
+							<!-- <apply_if minzoom="14" baseAppMode="pedestrian" order="87"/> -->
+						</case>
+						<apply_if layer="1" maxzoom="15" order="20"/>
+						<apply_if additional="layer=2" maxzoom="15" order="20"/>
+						<apply_if additional="layer=3" maxzoom="15" order="20"/>
+						<apply_if layer="1" minzoom="16" order="110"/>
+						<apply_if additional="layer=2" minzoom="16" order="140"/>
+						<apply_if additional="layer=3" minzoom="16" order="166"/>
+						<!-- <apply_if baseAppMode="bicycle" layer="1" maxzoom="15" order="110"/>
+						<apply_if baseAppMode="bicycle" additional="layer=2" maxzoom="15" order="140"/>
+						<apply_if baseAppMode="bicycle" additional="layer=3" maxzoom="15" order="166"/> -->
+						<apply_if layer="-1" order="20"/>
+						<apply_if additional="layer=-2" order="19"/>
+					</switch>
+					<!-- default is enough (?): -->
+					<!-- <case tag="highway" value="steps" order="65">
+						<apply_if minzoom="14" baseAppMode="pedestrian" order="61"/>
+						<apply_if baseAppMode="default" moreDetailed="false">
+							<apply_if minzoom="15" maxzoom="15" order="-1"/>
+							<apply_if additional="conveying=yes" layer="-1" maxzoom="16" order="-1"/>
 			</apply_if>
+						<apply_if layer="1" order="111">
+							<apply_if maxzoom="15" order="66"/>
+							<apply_if baseAppMode="default" moreDetailed="false" maxzoom="15" order="-1"/>
+						</apply_if>
+						<apply_if additional="layer=2" order="140"/>
+						<apply_if additional="layer=3" order="166"/>
+						<apply_if layer="-1" order="20"/>
+						<apply_if additional="layer=-2" order="19"/>
+					</case> -->
+					<apply_if baseAppMode="car">
+						<case layer="0" maxzoom="18" order="-1"/>
+						<case layer="-1" maxzoom="18" order="-1"/>
+						<case layer="1" maxzoom="16" order="89"/>
+					</apply_if>
+				</switch>
+				<!-- TODO: display via ferratas at lower zoom? -->
+				<case tag="highway" value="via_ferrata">
+					<apply_if moreDetailed="false" maxzoom="15" order="-1"/>
 		</case>
-	</renderingAttribute>
-	<renderingAttribute name="motorwayRoadShadowColor">
-		<case roadStyle="yellowRoads" attrColorValue="#F7A126"/>
-	</renderingAttribute> -->
-
-	<!-- Trunk  -->
-	<!-- <renderingAttribute name="trunkRoadColor">
-		<case roadStyle="yellowRoads" attrColorValue="#FFDF68">
-			<apply_if additional="tunnel=yes" attrColorValue="#F9BAA5"/>
-			<apply_if additional="covered=yes" attrColorValue="#F9BAA5"/>
-			<apply_if nightMode="true" attrColorValue="#af574f">
-				<apply_if additional="tunnel=yes" attrColorValue="#66332E"/>
-				<apply_if additional="covered=yes" attrColorValue="#66332E"/>
-			</apply_if>
-		</case>
-	</renderingAttribute> -->
-
-	<!-- Primary  -->
-	<!-- <renderingAttribute name="primaryRoadColor">
-		<case roadStyle="yellowRoads" attrColorValue="#FFDF68">
-			<apply_if additional="tunnel=yes" attrColorValue="#FFCF9E"/>
-			<apply_if additional="covered=yes" attrColorValue="#FFCF9E"/>
-			<apply_if nightMode="true" attrColorValue="#b88165">
-				<apply_if additional="tunnel=yes" attrColorValue="#835C49"/>
-				<apply_if additional="covered=yes" attrColorValue="#835C49"/>
-			</apply_if>
-		</case>
-	</renderingAttribute> -->
-
-	<!-- Secondary  -->
-	<!-- <renderingAttribute name="secondaryRoadColor">
-		<case roadStyle="yellowRoads" attrColorValue="#FFEDB3">
-			<apply_if additional="tunnel=yes" attrColorValue="#FFEAC7"/>
-			<apply_if additional="covered=yes" attrColorValue="#FFEAC7"/>
-			<apply_if nightMode="true" attrColorValue="#ffd080">
-				<apply_if baseAppMode="car" attrColorValue="#cca568"/>
-				<apply_if additional="tunnel=yes" attrColorValue="#F4B852"/>
-				<apply_if additional="covered=yes" attrColorValue="#F4B852"/>
-			</apply_if>
-		</case>
-	</renderingAttribute> -->
-
-	<!-- Tertiary  -->
-	<!-- <renderingAttribute name="tertiaryRoadColor">
-		<case roadStyle="yellowRoads" attrColorValue="#FFEDB3">
-			<apply_if additional="tunnel=yes" attrColorValue="#F2F2F2"/>
-			<apply_if additional="covered=yes" attrColorValue="#F2F2F2"/>
-			<apply_if additional="construction=yes" attrColorValue="#D6CF2A"/>
-			<apply_if nightMode="true" attrColorValue="#37555c">
-				<apply_if additional="tunnel=yes" attrColorValue="#2E474D"/>
-				<apply_if additional="covered=yes" attrColorValue="#2E474D"/>
-			</apply_if>
-		</case>
-	</renderingAttribute> -->
-
-	<!-- Service -->
-	<!-- <renderingAttribute name="serviceRoadColor">
-		<case roadStyle="yellowRoads" attrColorValue="#E8E8E8">
-			<apply_if additional="tunnel=yes" attrColorValue="#E8E8E8"/>
-			<apply_if additional="covered=yes" attrColorValue="#E8E8E8"/>
-			<apply_if additional="construction=yes" attrColorValue="#cccccc"/>
-			<apply_if nightMode="true" attrColorValue="#263b40">
-				<apply_if additional="tunnel=yes" attrColorValue="#24383D"/>
-				<apply_if additional="covered=yes" attrColorValue="#24383D"/>
-			</apply_if>
-		</case>
-	</renderingAttribute>
-	<renderingAttribute name="serviceDrivewayRoadColor">
-		<case roadStyle="yellowRoads" attrColorValue="#E8E8E8">
-			<apply_if moreDetailed="true" attrColorValue="#E8E8E8"/>
-			<apply_if additional="tunnel=yes" attrColorValue="#E8E8E8"/>
-			<apply_if additional="covered=yes" attrColorValue="#E8E8E8"/>
-			<apply_if additional="construction=yes" attrColorValue="#cccccc"/>
-			<apply_if nightMode="true" attrColorValue="#263b40"/>
-		</case>
-	</renderingAttribute> -->
-
+			</switch>
+		</switch>
+	</order>
 
 	<!-- Less visible power towers -->
 	<point>
