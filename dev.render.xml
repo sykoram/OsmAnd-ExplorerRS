@@ -345,7 +345,7 @@
 	</text>
 
 	<!-- street lighting -->
-	<!-- <polygon>
+	<polygon>
 		<switch streetLighting="true" minzoom="10" cap_2="ROUND">
 			<case tag="lit" value="yes" color="$null" color_2="$litYesColor"/>
 			<case tag="lit" value="no" color="$null" color_2="$litNoColor"/>
@@ -393,7 +393,7 @@
 				<apply cap="BUTT" strokeWidth="9:9"/>
 			</switch>
 		</switch>
-	</line> -->
+	</line>
 
 	<polygon>
 		<switch>
