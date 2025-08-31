@@ -168,109 +168,147 @@
 		<case attrColorValue="#88ff0000"/>
 	</renderingAttribute>
 
+	<!-- order: the structure should be similar to the one in default.render.
+		Most parts of the code has only been copied from default.render and modified -->
 	<order>
-		<!-- Lines -->
-		<switch area="false" objectType="2" order="80">
-			<!-- pedestrian/cycle paths: copied from default.render, modified (mostly commented some parts out) -->
-			<switch>
-				<case tag="highway" value="track" order="64">
-					<!-- <apply_if baseAppMode="pedestrian" order="85"/>
-					<apply_if baseAppMode="bicycle" order="87"/> -->
-					<apply_if layer="1" order="89"/>
-					<apply_if additional="layer=2" order="119"/>
-					<apply_if additional="layer=3" order="147"/>
-					<apply_if layer="-1" order="20"/>
-					<apply_if additional="layer=-2" order="19"/>
-				</case>
-				<case tag="highway" value="cycleway" order="65">
-					<!-- <apply_if baseAppMode="pedestrian" order="87"/> -->
-					<apply_if layer="1" order="109"/>
-					<apply_if additional="layer=2" order="139"/>
-					<apply_if additional="layer=3" order="146"/>
-					<apply_if layer="-1" order="42"/>
-					<apply_if additional="layer=-2" order="19"/>
-					<!-- <apply_if baseAppMode="bicycle" order="177"/>
-					<apply_if baseAppMode="default" moreDetailed="false" maxzoom="15" order="-1"/> -->
-				</case>
-				<!-- TODO: do we want  -->
+		<switch>
+			<!-- Point 101-200 -->
+			<!-- ... -->
+
+			<!-- Polygon 1-10 -->
+			<!-- ... -->
+			
+			<!-- Line 11-100 -->
+			<switch area="false" objectType="2" order="80">
+				<!-- pedestrian/cycle paths: copied from default.render, modified (mostly commented some parts out) -->
 				<switch>
-					<case tag="cycleway" value=""/>
-					<case tag="cycleway:both" value=""/>
-					<apply order="-1"/>
-					<apply_if baseAppMode="bicycle" order="88">
+					<case tag="highway" value="track" order="64">
+						<!-- <apply_if baseAppMode="pedestrian" order="85"/>
+						<apply_if baseAppMode="bicycle" order="87"/> -->
+						<apply_if layer="1" order="89"/>
+						<apply_if additional="layer=2" order="119"/>
+						<apply_if additional="layer=3" order="147"/>
+						<apply_if layer="-1" order="20"/>
+						<apply_if additional="layer=-2" order="19"/>
+					</case>
+					<case tag="highway" value="cycleway" order="65">
+						<!-- <apply_if baseAppMode="pedestrian" order="87"/> -->
+						<apply_if layer="1" order="109"/>
+						<apply_if additional="layer=2" order="139"/>
+						<apply_if additional="layer=3" order="146"/>
+						<apply_if layer="-1" order="42"/>
+						<apply_if additional="layer=-2" order="19"/>
+						<!-- <apply_if baseAppMode="bicycle" order="177"/>
+						<apply_if baseAppMode="default" moreDetailed="false" maxzoom="15" order="-1"/> -->
+					</case>
+					
+					<!-- TODO: do we want marks on roads with cycleways? (below is the default) -->
+					<!-- <switch>
+						<case tag="cycleway" value=""/>
+						<case tag="cycleway:both" value=""/>
+						<apply order="-1"/>
+						<apply_if baseAppMode="bicycle" order="88">
+							<apply_if layer="1" order="109"/>
+							<apply_if additional="layer=2" order="139"/>
+							<apply_if additional="layer=3" order="167"/>
+							<apply_if layer="-1" order="42"/>
+							<apply_if additional="layer=-2" order="19"/>
+						</apply_if>
+					</switch> -->
+
+					<!-- no marks on roads with sidewalk="*" at all: -->
+					<!-- <case baseAppMode="pedestrian" tag="sidewalk" value="" order="89">
 						<apply_if layer="1" order="109"/>
 						<apply_if additional="layer=2" order="139"/>
 						<apply_if additional="layer=3" order="167"/>
 						<apply_if layer="-1" order="42"/>
 						<apply_if additional="layer=-2" order="19"/>
-					</apply_if>
-				</switch>
-				<!-- <case baseAppMode="pedestrian" tag="sidewalk" value="" order="89">
-					<apply_if layer="1" order="109"/>
-					<apply_if additional="layer=2" order="139"/>
-					<apply_if additional="layer=3" order="167"/>
-					<apply_if layer="-1" order="42"/>
-					<apply_if additional="layer=-2" order="19"/>
-				</case> -->
-				<!-- no marks on roads with sidewalk="*" at all: -->
-				<case tag="sidewalk" value="" order="-1">
-					
-				</case>
-				<case baseAppMode="default" tag="cycleway" value="" moreDetailed="false" maxzoom="15" order="-1"/>
-				<case baseAppMode="default" tag="sidewalk" value="" moreDetailed="false" maxzoom="15" order="-1"/>
-				<switch>
-					<switch>
-						<case tag="highway" value="path" order="64">
-							<!-- <apply_if minzoom="14" baseAppMode="pedestrian" order="86"/>
-							<apply_if baseAppMode="bicycle" order="86"/> -->
-						</case>
-						<case tag="highway" value="footway" order="64">
-							<!-- <apply_if minzoom="14" baseAppMode="pedestrian" order="86"/> -->
-							<!-- <apply_if baseAppMode="bicycle" additional="bicycle=designated" order="88" /> -->
-							<!-- <apply_if additional="footway=crossing" order="85"/> -->
-						</case>
-						<case tag="highway" value="bridleway" order="53">
-							<!-- <apply_if minzoom="14" baseAppMode="pedestrian" order="87"/> -->
-						</case>
-						<apply_if layer="1" maxzoom="15" order="20"/>
-						<apply_if additional="layer=2" maxzoom="15" order="20"/>
-						<apply_if additional="layer=3" maxzoom="15" order="20"/>
-						<apply_if layer="1" minzoom="16" order="110"/>
-						<apply_if additional="layer=2" minzoom="16" order="140"/>
-						<apply_if additional="layer=3" minzoom="16" order="166"/>
-						<!-- <apply_if baseAppMode="bicycle" layer="1" maxzoom="15" order="110"/>
-						<apply_if baseAppMode="bicycle" additional="layer=2" maxzoom="15" order="140"/>
-						<apply_if baseAppMode="bicycle" additional="layer=3" maxzoom="15" order="166"/> -->
-						<apply_if layer="-1" order="20"/>
-						<apply_if additional="layer=-2" order="19"/>
-					</switch>
-					<!-- default is enough (?): -->
-					<!-- <case tag="highway" value="steps" order="65">
-						<apply_if minzoom="14" baseAppMode="pedestrian" order="61"/>
-						<apply_if baseAppMode="default" moreDetailed="false">
-							<apply_if minzoom="15" maxzoom="15" order="-1"/>
-							<apply_if additional="conveying=yes" layer="-1" maxzoom="16" order="-1"/>
-						</apply_if>
-						<apply_if layer="1" order="111">
-							<apply_if maxzoom="15" order="66"/>
-							<apply_if baseAppMode="default" moreDetailed="false" maxzoom="15" order="-1"/>
-						</apply_if>
-						<apply_if additional="layer=2" order="140"/>
-						<apply_if additional="layer=3" order="166"/>
-						<apply_if layer="-1" order="20"/>
-						<apply_if additional="layer=-2" order="19"/>
 					</case> -->
-					<apply_if baseAppMode="car">
-						<case layer="0" maxzoom="18" order="-1"/>
-						<case layer="-1" maxzoom="18" order="-1"/>
-						<case layer="1" maxzoom="16" order="89"/>
-					</apply_if>
+					<case tag="sidewalk" value="" order="-1">
+						
+					</case>
+					<case baseAppMode="default" tag="cycleway" value="" moreDetailed="false" maxzoom="15" order="-1"/>
+					<case baseAppMode="default" tag="sidewalk" value="" moreDetailed="false" maxzoom="15" order="-1"/>
+					<switch>
+						<switch>
+							<case tag="highway" value="path" order="64">
+								<!-- <apply_if minzoom="14" baseAppMode="pedestrian" order="86"/>
+								<apply_if baseAppMode="bicycle" order="86"/> -->
+							</case>
+							<case tag="highway" value="footway" order="64">
+								<!-- <apply_if minzoom="14" baseAppMode="pedestrian" order="86"/> -->
+								<!-- <apply_if baseAppMode="bicycle" additional="bicycle=designated" order="88" /> -->
+								<!-- <apply_if additional="footway=crossing" order="85"/> -->
+							</case>
+							<case tag="highway" value="bridleway" order="53">
+								<!-- <apply_if minzoom="14" baseAppMode="pedestrian" order="87"/> -->
+							</case>
+							<apply_if layer="1" maxzoom="15" order="20"/>
+							<apply_if additional="layer=2" maxzoom="15" order="20"/>
+							<apply_if additional="layer=3" maxzoom="15" order="20"/>
+							<apply_if layer="1" minzoom="16" order="110"/>
+							<apply_if additional="layer=2" minzoom="16" order="140"/>
+							<apply_if additional="layer=3" minzoom="16" order="166"/>
+							<!-- <apply_if baseAppMode="bicycle" layer="1" maxzoom="15" order="110"/>
+							<apply_if baseAppMode="bicycle" additional="layer=2" maxzoom="15" order="140"/>
+							<apply_if baseAppMode="bicycle" additional="layer=3" maxzoom="15" order="166"/> -->
+							<apply_if layer="-1" order="20"/>
+							<apply_if additional="layer=-2" order="19"/>
+						</switch>
+						<!-- default is enough (?): -->
+						<!-- <case tag="highway" value="steps" order="65">
+							<apply_if minzoom="14" baseAppMode="pedestrian" order="61"/>
+							<apply_if baseAppMode="default" moreDetailed="false">
+								<apply_if minzoom="15" maxzoom="15" order="-1"/>
+								<apply_if additional="conveying=yes" layer="-1" maxzoom="16" order="-1"/>
+							</apply_if>
+							<apply_if layer="1" order="111">
+								<apply_if maxzoom="15" order="66"/>
+								<apply_if baseAppMode="default" moreDetailed="false" maxzoom="15" order="-1"/>
+							</apply_if>
+							<apply_if additional="layer=2" order="140"/>
+							<apply_if additional="layer=3" order="166"/>
+							<apply_if layer="-1" order="20"/>
+							<apply_if additional="layer=-2" order="19"/>
+						</case> -->
+						<apply_if baseAppMode="car">
+							<case layer="0" maxzoom="18" order="-1"/>
+							<case layer="-1" maxzoom="18" order="-1"/>
+							<case layer="1" maxzoom="16" order="89"/>
+						</apply_if>
+					</switch>
+					<!-- TODO: display via ferratas at lower zoom? -->
+					<case tag="highway" value="via_ferrata">
+						<apply_if moreDetailed="false" maxzoom="15" order="-1"/>
+					</case>
 				</switch>
-				<!-- TODO: display via ferratas at lower zoom? -->
-				<case tag="highway" value="via_ferrata">
-					<apply_if moreDetailed="false" maxzoom="15" order="-1"/>
-				</case>
 			</switch>
+
+			<apply_if hideUnderground="true">
+				<apply_if layer="-1" order="-1">
+					<switch baseAppMode="car"> <!-- Show tunnels in car mode even if hideUnderground="true" -->
+						<case tag="highway" value="motorway" order="62"/>
+						<case tag="highway" value="motorway_link" order="49"/>
+						<case tag="highway" value="trunk" order="61"/>
+						<case tag="highway" value="trunk_link" order="48"/>
+						<case tag="highway" value="primary" order="60"/>
+						<case tag="highway" value="primary_link" order="47"/>
+						<case tag="highway" value="secondary" order="59"/>
+						<case tag="highway" value="secondary_link" order="46"/>
+						<case tag="highway" value="tertiary" order="58"/>
+						<case tag="highway" value="tertiary_link" order="45"/>
+						<case tag="highway" value="unclassified" order="57"/>
+						<case tag="highway" value="residential" order="57"/>
+						<case tag="highway" value="service" order="56"/>
+						<case tag="highway" value="busway" order="56"/>
+						<case tag="highway" value="bus_guideway" order="56"/>
+						<case tag="highway" value="living_street" order="56"/>
+					</switch>
+				</apply_if>
+				<apply_if additional="indoor=yes" order="-1"/>
+				<apply_if additional="covered=yes" order="-1"/>
+			</apply_if>
+			<apply_if showProposed="false" additional="proposed=yes" order="-1"/>
 		</switch>
 	</order>
 
