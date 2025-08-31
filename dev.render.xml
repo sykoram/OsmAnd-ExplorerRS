@@ -169,7 +169,7 @@
 	</renderingAttribute>
 
 	<!-- order: the structure should be similar to the one in default.render.
-		Most parts of the code has only been copied from default.render and modified -->
+		Most parts of the code has only been copied from default.render (the relevant part) and slightly modified -->
 	<order>
 		<switch>
 			<!-- Point 101-200 -->
@@ -180,7 +180,8 @@
 			
 			<!-- Line 11-100 -->
 			<switch area="false" objectType="2" order="80">
-				<!-- pedestrian/cycle paths: copied from default.render, modified (mostly commented some parts out) -->
+				
+				<!-- public transport, railways, natural=*, waterway=*, boundaries, track/foot/cycle ways, ... -->
 				<switch>
 					<case tag="highway" value="track" order="64">
 						<!-- <apply_if baseAppMode="pedestrian" order="85"/>
@@ -281,6 +282,13 @@
 					<case tag="highway" value="via_ferrata">
 						<apply_if moreDetailed="false" maxzoom="15" order="-1"/>
 					</case>
+
+					<apply_if hideOverground="true" minzoom="15">
+						<apply_if layer="0" order="-1"/>
+						<apply_if layer="1" order="-1"/>
+						<apply_if layer="2" order="-1"/>
+						<apply_if layer="3" order="-1"/>
+					</apply_if>
 				</switch>
 			</switch>
 
