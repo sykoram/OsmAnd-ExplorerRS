@@ -28,33 +28,69 @@ Then, simply open OsmAnd again.
 
 - Goal: multi-purpose, but hiking is important
 - based on UniMap (basings/OsmAnd-custom-map-styles) and routes.addon.render.xml
-- recommended: More details On
 - less vibrant colors of larger areas (forests,...)
-- smaller power tower icons
-- hiking (+fitness+running) routes: remove cap=ROUND
-- hide power=substation text (at least try to)
+- foot & cycle paths, tracks - more visible, but hopefully not overwhelming
+    - custom styles
+    - visibility with moreDetailed="true":
+        - zoom <=12: nothing
+        - zoom 13: tracks, cycleways
+        - zoom >=14: all paths
+    - rendered under roads, otherwise the map becomes cluttered with sidewalks etc. (zoom 14--16)
+- hiking (+fitness+running) routes
+    - thinner on zoom 12--14
+    - no shield/icon on zoom 12
+    - hiking routes: remove cap=ROUND
+- less visible:
+    - smaller power tower icons
+    - hide power=substation text (at least try to)
 - show address/building names from zoom 16; show house numbers from zoom 18
 
 
 
 ## TODO
-- blue (?) parking spaces
+- highway=pedestrian style?
+- hiking routes (+others?)
+    - display under paths/tracks/roads
+    - smaller text?
+- buildings
+    - from zoom 16 (all!)
+    - no/less visible borders
 - some roads in tunnels not shown?
-- thinner (80%?), more vibrant (a bit less transparency) hiking routes; from larger zoom even more
-- smaller (hiking) routes shields, maybe from larget zoom
-- sidewalks from larger zoom
-- foot & cyclo paths style
-- smaller text (incl. contour lines)
+- zoom 12 (Dolomiti)
+    - smaller text for mountain ranges
+    - higher priority for municipality names!
+- smaller text
+    - contour lines on lower zoom
 - via ferrata?
 - more visible train
 - less visible tram
 - option for subway (and public transport in general?)
+    - zoom 12-16?
 - mark important buildings (church, castle, school, court, hospital, shopping center, ...)
 - maybe smaller icons (smaller padding? not in circle?)
 - change icon priority? - TODO
     - higher priority: camping place
     - lower priority:  information board, power=substation
 - border style?
+    - disable borders between municipalities
+- man_made=cutline? (Milíčovský vrch)
+- fix night mode
+- no street names for residental/living_street at zoom 14
+    - also for track/path/footway/cycleway?
+- less vibrant "basic" green areas (grass?) -> more visible forests
+
+
+### Don't know how / too much hassle
+- smaller hiking route shields
+    - changing textSize only resizes letter inside
+    - but changing profile font size also resizes them!
+    - think about generating a custom set (see https://github.com/osmandapp/OsmAnd-resources)
+- hide text: MTB routes ("XC KKZ"...)
+    - looks like there is no information in the data that this name belongs to a MTB route; eg. "XC KKZ" is assigned to a normal route
+- possible, but probably too much code to copy (which isn't future-proof):
+    - thinner roads (default: from line 9754), which would allow thinner hiking routes
+    - a bit more details with moreDetailed="false" (eg. residental/living streets)
+    - bridges: less visible (not thick black line)
 
 
 
@@ -62,6 +98,8 @@ Then, simply open OsmAnd again.
 ## Notes, tips, snippets
 
 ### About rendering syntax:
+
+Color are in hex, but ARGB!
 
 From `default.render.xml`
 ```
