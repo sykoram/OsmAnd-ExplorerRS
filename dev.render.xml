@@ -151,6 +151,63 @@
 		<case attrColorValue="$defaultColor"/>
 	</renderingAttribute>
 
+	<!-- track/path/footway/cycleway styles - combined from default.render+Touring, modified: -->
+	<!-- track: -->
+	<renderingAttribute name="trackColor">
+		<case attrColorValue="#dd3e7434">
+			<apply_if nightMode="true" attrColorValue="#4F7A73"/>
+		</case>
+	</renderingAttribute>
+	<!-- <renderingConstant name="trackStrokeWidth" value="1:1"/>
+	<renderingConstant name="trackWithSurfaceStrokeWidth" value="1:1"/>
+	<renderingConstant name="trackLowZoomStrokeWidth" value="0.7"/>
+	<renderingConstant name="trackLowZoomStrokeWidth2" value="1.1"/>
+	<renderingConstant name="trackPathEffect" value="5_2_2_2"/>
+	<renderingConstant name="trackBridgeWidth" value="4:2.5"/>
+	<renderingConstant name="trackBridgeInnerWidth" value="3:2"/>
+	<renderingConstant name="trackTunnelPathEffect" value="3_3"/> -->
+	<!-- footway, path: -->
+	<renderingAttribute name="rungsColor">
+		<case attrColorValue="#C70BFF"/>
+	</renderingAttribute>
+	<renderingAttribute name="footwayColor">
+		<switch>
+			<case baseAppMode="bicycle"/>
+			<case baseAppMode="pedestrian"/>
+			<apply attrColorValue="#99000000"/>
+			<apply_if nightMode="true" attrColorValue="#787878"/>
+		</switch>
+		<case attrColorValue="#55000000">
+			<apply_if nightMode="true" attrColorValue="#787878"/>
+		</case>
+		<apply_if additional="osmand_rungs=yes" attrColorValue="$rungsColor"/>
+		<apply_if additional="assisted_trail=yes" attrColorValue="$rungsColor"/>
+		<apply_if additional="osmand_safety_rope=yes" attrColorValue="$rungsColor"/>
+	</renderingAttribute>
+	<!-- <renderingConstant name="footwayStrokeWidth" value="1"/> -->
+	<renderingAttribute name="pathColor">
+		<case attrColorValue="$footwayColor">
+			<apply_if nightMode="true" attrColorValue="$footwayColor"/>
+		</case>
+	</renderingAttribute>
+	<!-- <renderingConstant name="pathStrokeWidth" value="1.5"/>
+	<renderingConstant name="pathLowZoomStrokeWidth" value="0.6"/>
+	<renderingConstant name="pathPathEffect" value="2_2"/>
+	<renderingConstant name="pathLowZoomPathEffect" value=""/> -->
+	<!-- cycleway: -->
+	<renderingAttribute name="cyclewayColor">
+		<!-- <case attrColorValue="#0000FF"> -->
+		<case attrColorValue="#dd2255aa">
+			<apply_if nightMode="true" attrColorValue="#3333FF"/>
+			<!-- Alpine Hiking Mode: Remove conflicting cycle color -->
+			<apply_if alpineHiking="true" attrColorValue="$pathColor" color="$null">
+				<apply_if nightMode="true" attrColorValue="$pathColor"/>
+			</apply_if>
+		</case>
+	</renderingAttribute>
+	<renderingConstant name="cyclewayStrokeWidth" value="1:1"/>
+	<!-- <renderingConstant name="cyclewayPathEffect" value="7_3"/> -->
+
 	<renderingAttribute name="litYesColor">
 		<case engine_v1="false">
 			<case nightMode="true" attrColorValue="#55aeae00"/>
