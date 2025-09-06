@@ -203,6 +203,28 @@
 		<switch>
 			<case baseAppMode="bicycle"/>
 			<case baseAppMode="pedestrian"/>
+			<apply attrColorValue="#99444444"/>
+			<apply_if nightMode="true" attrColorValue="#787878"/>
+		</switch>
+		<case attrColorValue="#55444444">
+			<apply_if nightMode="true" attrColorValue="#787878"/>
+		</case>
+		<apply_if additional="osmand_rungs=yes" attrColorValue="$rungsColor"/>
+		<apply_if additional="assisted_trail=yes" attrColorValue="$rungsColor"/>
+		<apply_if additional="osmand_safety_rope=yes" attrColorValue="$rungsColor"/>
+	</renderingAttribute>
+	<renderingConstant name="footwayStrokeWidth" value="0.9"/>
+	<renderingConstant name="footwayLowZoomPathEffect" value=""/>
+	<renderingConstant name="footwayPathEffect" value=""/>
+	<renderingAttribute name="pathLowZoomColor">
+		<case attrColorValue="#888888">
+			<apply_if nightMode="true" attrColorValue="#787878"/>
+		</case>
+	</renderingAttribute>
+	<renderingAttribute name="pathColor">
+		<switch>
+			<case baseAppMode="bicycle"/>
+			<case baseAppMode="pedestrian"/>
 			<apply attrColorValue="#99000000"/>
 			<apply_if nightMode="true" attrColorValue="#787878"/>
 		</switch>
@@ -212,17 +234,6 @@
 		<apply_if additional="osmand_rungs=yes" attrColorValue="$rungsColor"/>
 		<apply_if additional="assisted_trail=yes" attrColorValue="$rungsColor"/>
 		<apply_if additional="osmand_safety_rope=yes" attrColorValue="$rungsColor"/>
-	</renderingAttribute>
-	<renderingConstant name="footwayStrokeWidth" value="1"/>
-	<renderingAttribute name="pathLowZoomColor">
-		<case attrColorValue="#888888">
-			<apply_if nightMode="true" attrColorValue="#787878"/>
-		</case>
-	</renderingAttribute>
-	<renderingAttribute name="pathColor">
-		<case attrColorValue="$footwayColor">
-			<apply_if nightMode="true" attrColorValue="$footwayColor"/>
-		</case>
 	</renderingAttribute>
 	<renderingConstant name="pathStrokeWidth" value="1.5"/>
 	<renderingConstant name="pathLowZoomStrokeWidth" value="0.6"/>
@@ -781,24 +792,24 @@
 						</case>
 
 						<case minzoom="$footwayMinZoom" tag="highway" value="footway" color_5="$footwayColor">
-							<case baseAppMode="bicycle" minzoom="14" additional="bicycle=designated" color_5="$cyclewayColor" pathEffect_5="4_2" strokeWidth_5="1:1"/>
+							<case baseAppMode="bicycle" minzoom="14" additional="bicycle=designated" color_5="$cyclewayColor" pathEffect_5="$cyclewayLowZoomPathEffect" strokeWidth_5="$cyclewayLowZoomStrokeWidth"/>
 							<switch maxzoom="15">
 								<case moreDetailed="true">
 									<case layer="1" strokeWidth_5="0.6"/>
 									<case additional="layer=2" strokeWidth_5="0.6"/>
 									<case additional="layer=3" strokeWidth_5="0.6"/>
-									<case maxzoom="14" strokeWidth_4="1.4:1.4" strokeWidth_5="0.7" pathEffect_5="">
+									<case maxzoom="14" strokeWidth_4="1.4:1.4" strokeWidth_5="0.7" pathEffect_5="$footwayLowZoomPathEffect">
 										<apply_if baseAppMode="pedestrian" strokeWidth_5="0.9"/>
 									</case>
-									<case minzoom="15" maxzoom="15" strokeWidth_4="1.4:1.4" strokeWidth_5="0.5:1" pathEffect_5="4_2">
-										<apply_if baseAppMode="pedestrian" strokeWidth_5="1:1"/>
+									<case minzoom="15" maxzoom="15" strokeWidth_4="1.4:1.4" strokeWidth_5="0.5:1" pathEffect_5="$footwayLowZoomPathEffect">
+										<!-- <apply_if baseAppMode="pedestrian" strokeWidth_5="1:1"/> -->
 									</case>
 								</case>
 								<case baseAppMode="pedestrian">
-									<case minzoom="15" strokeWidth_4="1.4:1.4" strokeWidth_5="0.9" pathEffect_5=""/>
+									<case minzoom="15" strokeWidth_4="1.4:1.4" strokeWidth_5="0.9" pathEffect_5="$footwayLowZoomPathEffect"/>
 								</case>
 							</switch>
-							<case minzoom="15" strokeWidth_4="1.4:1.4" strokeWidth_5="$footwayStrokeWidth" pathEffect_5="4_2">
+							<case minzoom="15" strokeWidth_4="1.4:1.4" strokeWidth_5="$footwayStrokeWidth" pathEffect_5="$footwayPathEffect">
 								<switch>
 									<case baseAppMode="bicycle"/>
 									<case baseAppMode="pedestrian"/>
