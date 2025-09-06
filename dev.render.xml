@@ -239,6 +239,9 @@
 			</apply_if>
 		</case>
 	</renderingAttribute>
+	<renderingConstant name="cyclewayLowZoomStrokeWidth" value="0.7"/>
+	<renderingConstant name="cyclewayLowZoomStrokeWidth2" value="1.1"/>
+	<renderingConstant name="cyclewayLowZoomPathEffect" value="4_1.5"/>
 	<renderingConstant name="cyclewayStrokeWidth" value="1:1"/>
 	<renderingConstant name="cyclewayPathEffect" value="7_3"/>
 	
@@ -836,10 +839,12 @@
 					</switch>
 
 					<case minzoom="$cyclewayMinZoom" tag="highway" value="cycleway">
-						<case baseAppMode="bicycle">
-							<apply_if moreDetailed="true" maxzoom="13" strokeWidth_5="0.7" pathEffect_5="4_2"/>
-							<apply minzoom="14" strokeWidth_4="1.4:1.4" strokeWidth_5="1:1" pathEffect_5="$cyclewayPathEffect"/>
-						</case>
+						<!-- show cycleways also at lower zooms -->
+						<switch moreDetailed="true">
+							<case maxzoom="12" strokeWidth_5="$cyclewayLowZoomStrokeWidth"/>
+							<case maxzoom="13" strokeWidth_5="$cyclewayLowZoomStrokeWidth2"/>
+							<apply pathEffect_5="$cyclewayLowZoomPathEffect"/>
+						</switch>
 						<case minzoom="14" strokeWidth_4="1.3:1.3" strokeWidth_5="$cyclewayStrokeWidth" pathEffect_5="$cyclewayPathEffect"/>
 						<apply color_5="$cyclewayColor"/>
 						<apply_if nightMode="true" color="#77002a2a">
