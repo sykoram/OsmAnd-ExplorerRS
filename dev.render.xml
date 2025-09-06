@@ -180,7 +180,23 @@
 			
 			<!-- Line 11-100 -->
 			<switch area="false" objectType="2" order="80">
-				
+				<!-- highways, railways -->
+				<switch>
+					<!-- change maxzoom - a bit less details with moreDetailed=true -->
+					<switch>
+						<case tag="highway" value="unclassified" maxzoom="11" order="-1" optimize="read"/>
+						<case tag="highway" value="residential" maxzoom="12" order="-1" optimize="read"/>
+						<case tag="highway" value="service" maxzoom="12" order="-1" optimize="read"/>
+						<case tag="highway" value="track" maxzoom="12" order="-1" optimize="read"/>
+						<case tag="highway" value="footway" maxzoom="13" order="-1" optimize="read"/>
+						<case tag="highway" value="path" maxzoom="13" order="-1" optimize="read"/>
+						<case tag="highway" value="bridleway" maxzoom="13" order="-1" optimize="read"/>
+						<case tag="highway" value="cycleway" maxzoom="12" order="-1" optimize="read"/>
+						<case tag="railway" value="rail" maxzoom="10" order="-1" optimize="read"/>
+						<case tag="railway" value="light_rail" maxzoom="12" order="-1" optimize="read"/>
+					</switch>
+				</switch>
+
 				<!-- public transport, railways, natural=*, waterway=*, boundaries, track/foot/cycle ways, ... -->
 				<switch>
 					<case tag="highway" value="track" order="64">
