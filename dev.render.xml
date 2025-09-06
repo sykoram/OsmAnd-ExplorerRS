@@ -214,11 +214,6 @@
 		<apply_if additional="osmand_safety_rope=yes" attrColorValue="$rungsColor"/>
 	</renderingAttribute>
 	<renderingConstant name="footwayStrokeWidth" value="1"/>
-	<renderingAttribute name="stepsRampColor">
-		<case attrColorValue="$footwayColor">
-			<apply_if additional="ramp_all=yes" attrColorValue="#009982"/>
-		</case>
-	</renderingAttribute>
 	<renderingAttribute name="pathLowZoomColor">
 		<case attrColorValue="#888888">
 			<apply_if nightMode="true" attrColorValue="#787878"/>
@@ -268,7 +263,6 @@
 		<case nightMode="true" attrColorValue="#69A65E"/>
 		<case attrColorValue="#9afb87"/>
 	</renderingAttribute>
-	<renderingConstant name="accessPermissiveColorNight2" value="#33512e"/>
 	<renderingAttribute name="accessAgriculturalColor">
 		<case nightMode="true" attrColorValue="#7dad56"/>
 		<case attrColorValue="#8fc763"/>
@@ -398,6 +392,7 @@
 		<case attrColorValue="#e8e8e8"/>
 	</renderingAttribute>
 
+	<!-- copied from default.render -->
 	<renderingAttribute name="routeInfo_surface"> <!-- This attribute is needed because of motorcar=yes,foot=yes,bicycle=yes access types (see showAccess="true" section). After <case motorcar=yes> we need to restore surface color (because access and surface uses the same color_3 line layer). Downside: renderingAttribute can't be used inside another renderingAttribute. Upside: custom surface types can be added via dependent rendering style without too much copying of code. -->
 		<case additional="surface=unpaved" attrColorValue="$surfaceUnpavedColor" attrStringValue="surface_unpaved"/>
 		<case additional="surface=sand" attrColorValue="$surfaceSandColor" attrStringValue="surface_sand"/>
@@ -854,49 +849,7 @@
 						</apply_if>
 					</case>
 
-					<?COMMENT
-					<case minzoom="15" tag="highway" value="steps">
-						<case baseAppMode="pedestrian" strokeWidth_4="2:2" strokeWidth_5="2:2" pathEffect_5="2_2"/>
-						<case moreDetailed="true" maxzoom="15">
-							<case layer="1" strokeWidth_4="1.7:1.7" strokeWidth_5="1.7:1.7"/>
-							<case additional="layer=2" strokeWidth_4="1.7:1.7" strokeWidth_5="1.7:1.7"/>
-							<case additional="layer=3" strokeWidth_4="1.7:1.7" strokeWidth_5="1.7:1.7"/>
-							<case strokeWidth_4="2:2" strokeWidth_5="2:2"/> <!-- If we remove this and let <order> to decide when to hide steps, layer="1" will be also hidden which is undesirable.-->
-						</case>
-						<case maxzoom="15" disable="true"/>
-						<case minzoom="16" strokeWidth_4="2:2" strokeWidth_5="2:2"/>
-						<apply color_5="$footwayColor" pathEffect_5="1_2"/>
-						<apply_if baseAppMode="bicycle" color_5="$stepsRampColor"/>
-						<apply_if additional="conveying=yes" pathEffect_5="2_1"/>
-					</case>
-
-					<case minzoom="16" tag="ladder" value="yes" strokeWidth_5="4:4" color_5="$rungsColor" pathEffect_5="1_2"/>
-
-					<case minzoom="16" tag="highway" value="elevator">
-						<apply color_5="$elevatorColor" strokeWidth_4="2:2" strokeWidth_5="2:2" pathEffect_5="2_1"/>
-					</case>
-					<case minzoom="16" tag="man_made" value="goods_conveyor">
-						<apply color_5="$goodsConveyorColor" strokeWidth_4="2:2" strokeWidth_5="2:2" pathEffect_5="2_1"/>
-					</case>
-
-					<case minzoom="$bridlewayMinZoom" tag="highway" value="bridleway">
-						<case baseAppMode="pedestrian" minzoom="15" strokeWidth_4="1.4:1.4" strokeWidth_5="1:1"/>
-						<!--<case horseRoutes="true" maxzoom="15">
-							<case maxzoom="12" strokeWidth_4="1.5" strokeWidth_5="1.3"/>
-							<case minzoom="13" strokeWidth_4="1.8:1.8" strokeWidth_5="1.7"/>
-						</case>-->
-						<case moreDetailed="true" maxzoom="15">
-							<case maxzoom="12" strokeWidth_4="0.9" strokeWidth_5="0.8"/>
-							<case minzoom="13" strokeWidth_4="1.2:1.2" strokeWidth_5="1"/>
-						</case>
-						<case minzoom="16" strokeWidth_4="1.4:1.4" strokeWidth_5="1">
-							<apply_if showSurfaceGrade="true" strokeWidth_5="$trackWithSurfaceStrokeWidth"/>
-							<apply_if showSurfaces="true" strokeWidth_5="$trackWithSurfaceStrokeWidth"/>
-							<!--<apply_if horseRoutes="true" strokeWidth_4="3:3" strokeWidth_5="1.5:1.5"/>-->
-						</case>
-						<apply color_5="$bridlewayColor" pathEffect_5="4_2"/>
-					</case>
-					?>
+					<!-- ...steps, elevator, bridleway... -->
 
 					<switch minzoom="15">
 						<case tag="abandoned:highway" value="track"/>
