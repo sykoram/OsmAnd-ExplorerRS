@@ -18,13 +18,16 @@
 - change icon priority? - TODO
     - higher priority: camping place
     - lower priority:  information board, power=substation
-- border style?
-    - disable borders between municipalities
+- border style - more visible between countries
 - man_made=cutline? (Milíčovský vrch)
-- fix night mode
 - no street names for residental/living_street at zoom 14
     - also for track/path/footway/cycleway?
 - less vibrant "basic" green areas (grass?) -> more visible forests
+
+- improve night mode
+
+- screenshots
+- installing
 
 
 ## Don't know how / too much hassle
@@ -36,5 +39,6 @@
     - looks like there is no information in the data that this name belongs to a MTB route; eg. "XC KKZ" is assigned to a normal route
 - possible, but probably too much code to copy (which isn't future-proof):
     - thinner roads (default: from line 9754), which would allow thinner hiking routes
+    - also thicker roads for very large zoom
     - a bit more details with moreDetailed="false" (eg. residental/living streets)
     - bridges: less visible (not thick black line)
