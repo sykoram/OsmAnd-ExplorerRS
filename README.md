@@ -1,6 +1,6 @@
 # ExplorerRS: custom OsmAnd rendering style
 
-**Goal:** Create a multi-purpose rendering style for the [OsmAnd](https://osmand.net/) map app which is practical to use both in a city and during outdoor activities.
+**Goal:** Create a multi-purpose [OsmAnd](https://osmand.net/) rendering style which would be practical to use both for outdoor activities and in the city.
 
 
 
