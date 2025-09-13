@@ -1142,6 +1142,25 @@
 		type="boolean" possibleValues="" category="routes"/>
 
 
+	<!-- option to display hiking routes above (default in routes.addon.render) -->
+	<renderingProperty attr="showHikingRoutesOver" name="Hiking routes rendered on top of roads/paths" description="Render hiking routes on top of roads"
+		type="boolean" possibleValues="" category="details"/>
+
+	<!-- options to hide route shields -->
+	<renderingProperty attr="hideHikingRouteShields" name="Shields: hiking routes" description="Hide shields for hiking routes"
+		type="boolean" possibleValues="" category="hide"/> <!-- for some weird reason, this property stops working when named "hideHikingRoutesShields" -->
+	<renderingProperty attr="hideCycleRouteShields" name="Shields: cycle routes" description="Hide shields for cycle routes"
+		type="boolean" possibleValues="" category="hide"/>
+	<renderingProperty attr="hideMtbRouteShields" name="Shields: MTB routes" description="Hide shields for MTB routes"
+		type="boolean" possibleValues="" category="hide"/>
+	<renderingProperty attr="hideHorseRouteShields" name="Shields: horse routes" description="Hide shields for horse routes"
+		type="boolean" possibleValues="" category="hide"/>
+	<renderingProperty attr="hidePisteRouteShields" name="Shields: pistes" description="Hide shields for pistes"
+		type="boolean" possibleValues="" category="hide"/>
+	<renderingProperty attr="hideRunningRouteShields" name="Shields: running routes" description="Hide shields for running routes"
+		type="boolean" possibleValues="" category="hide"/>
+
+
 	<renderingAttribute name="cycleRoutelcnColor">
 		<case engine_v1="false" attrColorValue="#450000ff"/>
 		<case attrColorValue="#600000ff">
@@ -1516,6 +1535,22 @@
 		<!-- Line 11-100 -->
 		<switch area="false" objectType="2" order="80">
 			<case tag="route" value="segment" order="100"/> <!-- TravelGpx track -->
+			<!-- hiking routes: over/under roads -->
+			<case showHikingRoutesOver="true" tag="route_hiking" value="" order="186"/>
+			<!-- hiking routes BELOW overground roads and paths 
+				>62 (underground motorway)
+				<64 (small paths) -->
+			<case showHikingRoutesOver="false" tag="route_hiking" value="" order="63">
+				<!-- >87 (cycleway on layer=0)
+					 >89 (sidewalk+cycleway in pedestrian/bicycle mode?) 
+				 	 <89 (track on layer=1) -->
+				<apply_if layer="1" order="89"/>
+				<!-- >42 (cycleway on layer=-2)
+					 ?44 (railway+proposed on layer=-1)
+					 <45 (service on layer=-1) -->
+				<apply_if layer="-1" order="44"/>
+				<!-- TODO: layers 2,3,-2 -->
+			</case>
 			<case tag="route_bicycle" value="" order="186"/>
 			<case tag="route_mtb" value="" order="187"/>
 			<case tag="route_dirtbike" value="" order="187"/>
@@ -1824,12 +1859,16 @@
 						<apply_if additional="route_hiking_#SEQ_osmc_textcolor=gray" textColor="$osmcGrayTextColor"/>
 						<apply_if additional="route_hiking_#SEQ_osmc_textcolor=black" textColor="#000000" textHaloRadius="1" textHaloColor="#30ffffff"/>
 						<apply_if additional="route_hiking_#SEQ_osmc_textcolor=white" textColor="#ffffff" textHaloRadius="1" textHaloColor="#22000000"/>
+						<!-- optionally hide it -->
+						<apply_if hideHikingRouteShields="true" disable="true"/>
 					</switch>
 					<switch>
 						<case hikingRoutesOSMC="walkingRoutesOSMC" tag="route_hiking" value="" nameTag="route_hiking_#SEQ_osmc_stub_name_v2"/>
 						<case hikingRoutesOSMC="walkingRoutesScopeOSMC" tag="route_hiking" value="" nameTag="route_hiking_#SEQ_osmc_stub_name_v2"/>
 						<apply textShield="osmc_?route_hiking_#SEQ_osmc_background?_bg" icon="osmc_?route_hiking_#SEQ_osmc_foreground?" icon_2="osmc_?route_hiking_#SEQ_osmc_foreground2?"/>
 						<apply_if additional="route_hiking_#SEQ_osmc_order=1" textOrder="44"/> <!-- Lower priority for routes without name and ref -->
+						<!-- optionally hide it -->
+						<apply_if hideHikingRouteShields="true" disable="true"/>
 					</switch>
 					<!-- Bicycle -->
 					<switch>
@@ -1856,9 +1895,13 @@
 						<apply_if additional="route_bicycle_#SEQ_osmc_textcolor=gray" textColor="$osmcGrayTextColor"/>
 						<apply_if additional="route_bicycle_#SEQ_osmc_textcolor=black" textColor="#000000" textHaloRadius="1" textHaloColor="#30ffffff"/>
 						<apply_if additional="route_bicycle_#SEQ_osmc_textcolor=white" textColor="#ffffff" textHaloRadius="1" textHaloColor="#22000000"/>
+						<!-- optionally hide it -->
+						<apply_if hideCycleRouteShields="true" disable="true"/>
 					</switch>
 					<case showCycleRoutes="true" tag="route_bicycle" value="" nameTag="route_bicycle_#SEQ_osmc_stub_name_v2" textShield="osmc_?route_bicycle_#SEQ_osmc_background?_bg" icon="osmc_?route_bicycle_#SEQ_osmc_foreground?">
 						<apply_if additional="route_bicycle_#SEQ_osmc_order=1" textOrder="44"/>
+						<!-- optionally hide it -->
+						<apply_if hideCycleRouteShields="true" disable="true"/>
 					</case>
 					<!-- MTB -->
 					<switch>
@@ -1885,9 +1928,13 @@
 						<apply_if additional="route_mtb_#SEQ_osmc_textcolor=gray" textColor="$osmcGrayTextColor"/>
 						<apply_if additional="route_mtb_#SEQ_osmc_textcolor=black" textColor="#000000" textHaloRadius="1" textHaloColor="#30ffffff"/>
 						<apply_if additional="route_mtb_#SEQ_osmc_textcolor=white" textColor="#ffffff" textHaloRadius="1" textHaloColor="#22000000"/>
+						<!-- optionally hide it -->
+						<apply_if hideMtbRouteShields="true" disable="true"/>
 					</switch>
 					<case showMtbRoutes="true" tag="route_mtb" value="" nameTag="route_mtb_#SEQ_osmc_stub_name_v2" textShield="osmc_?route_mtb_#SEQ_osmc_background?_bg" icon="osmc_?route_mtb_#SEQ_osmc_foreground?">
 						<apply_if additional="route_mtb_#SEQ_osmc_order=1" textOrder="44"/>
+						<!-- optionally hide it -->
+						<apply_if hideMtbRouteShields="true" disable="true"/>
 					</case>
 					<!-- Horse -->
 					<switch>
@@ -1914,9 +1961,13 @@
 						<apply_if additional="route_horse_#SEQ_osmc_textcolor=gray" textColor="$osmcGrayTextColor"/>
 						<apply_if additional="route_horse_#SEQ_osmc_textcolor=black" textColor="#000000" textHaloRadius="1" textHaloColor="#30ffffff"/>
 						<apply_if additional="route_horse_#SEQ_osmc_textcolor=white" textColor="#ffffff" textHaloRadius="1" textHaloColor="#22000000"/>
+						<!-- optionally hide it -->
+						<apply_if hideHorseRouteShields="true" disable="true"/>
 					</switch>
 					<case horseRoutes="true" tag="route_horse" value="" nameTag="route_horse_#SEQ_osmc_stub_name_v2" textShield="osmc_?route_horse_#SEQ_osmc_background?_bg" icon="osmc_?route_horse_#SEQ_osmc_foreground?">
 						<apply_if additional="route_bicycle_#SEQ_osmc_order=1" textOrder="44"/>
+						<!-- optionally hide it -->
+						<apply_if hideHorseRouteShields="true" disable="true"/>
 					</case>
 					<!-- Piste -->
 					<switch>
@@ -1943,6 +1994,8 @@
 						<apply_if additional="route_piste_#SEQ_osmc_textcolor=gray" textColor="$osmcGrayTextColor"/>
 						<apply_if additional="route_piste_#SEQ_osmc_textcolor=black" textColor="#000000" textHaloRadius="1" textHaloColor="#30ffffff"/>
 						<apply_if additional="route_piste_#SEQ_osmc_textcolor=white" textColor="#ffffff" textHaloRadius="1" textHaloColor="#22000000"/>
+						<!-- optionally hide it -->
+						<apply_if hidePisteRouteShields="true" disable="true"/>
 					</switch>
 					<!-- <case tag="route_piste" value="" nameTag="route_piste_#SEQ_osmc_stub_name_v2" textShield="osmc_?route_piste_#SEQ_osmc_background?_bg" icon="osmc_?route_piste_#SEQ_osmc_foreground?"/> -->
 					<!-- Running -->
@@ -1970,9 +2023,13 @@
 						<apply_if additional="route_running_#SEQ_osmc_textcolor=gray" textColor="$osmcGrayTextColor"/>
 						<apply_if additional="route_running_#SEQ_osmc_textcolor=black" textColor="#000000" textHaloRadius="1" textHaloColor="#30ffffff"/>
 						<apply_if additional="route_running_#SEQ_osmc_textcolor=white" textColor="#ffffff" textHaloRadius="1" textHaloColor="#22000000"/>
+						<!-- optionally hide it -->
+						<apply_if hideRunningRouteShields="true" disable="true"/>
 					</switch>
 					<case showRunningRoutes="true" tag="route_running" value="" nameTag="route_running_#SEQ_osmc_stub_name_v2" textShield="osmc_?route_running_#SEQ_osmc_background?_bg" icon="osmc_?route_running_#SEQ_osmc_foreground?">
 						<apply_if additional="route_running_#SEQ_osmc_order=1" textOrder="44"/>
+						<!-- optionally hide it -->
+						<apply_if hideRunningRouteShields="true" disable="true"/>
 					</case>
 				</switch>
 				

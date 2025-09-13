@@ -37,9 +37,10 @@ Then, simply open OsmAnd again.
         - zoom >=14: all paths
     - rendered under roads, otherwise the map becomes cluttered with sidewalks etc. (zoom 14--16)
 - hiking (+fitness+running) routes
+    - rendered under roads&paths (also layer-aware), option to switch back to default
     - thinner on zoom 12--14
-    - no shield/icon on zoom 12
-    - hiking routes: remove cap=ROUND
+    - no shield/icon on zoom 12, option to completely hide them
+    - prettier hiking routes (removed cap=ROUND)
 - less visible:
     - smaller power tower icons
     - hide power=substation text (at least try to)
@@ -48,9 +49,7 @@ Then, simply open OsmAnd again.
 
 
 ## TODO
-- highway=pedestrian style?
 - hiking routes (+others?)
-    - display under paths/tracks/roads
     - smaller text?
 - buildings
     - from zoom 16 (all!)
@@ -91,6 +90,13 @@ Then, simply open OsmAnd again.
     - thinner roads (default: from line 9754), which would allow thinner hiking routes
     - a bit more details with moreDetailed="false" (eg. residental/living streets)
     - bridges: less visible (not thick black line)
+
+
+
+
+## Interesting places
+- hiking route with layer=-1: Černý tunel, Moravský Krumlov
+- hiking route with layer=1: Starý davelský most, Davle
 
 
 
