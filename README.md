@@ -19,10 +19,15 @@
     - thinner on zoom 12--14
     - no shield/icon on zoom 12, option to completely hide them
     - prettier hiking routes (removed cap=ROUND)
+- improved railways styles (trains, trams...)
 - less visible:
     - smaller power tower icons
     - hide power=substation text (at least try to)
 - show address/building names from zoom 16; show house numbers from zoom 18
+
+### Recommended settings
+- Map rendering - Details - More Details: yes (if desired)
+- Map rendering - Hide - Boundaries: yes
 
 
 

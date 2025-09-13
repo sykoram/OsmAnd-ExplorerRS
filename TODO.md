@@ -11,8 +11,6 @@
 - smaller text
     - contour lines on lower zoom
 - via ferrata?
-- more visible train
-- less visible tram
 - option for subway (and public transport in general?)
     - zoom 12-16?
 - mark important buildings (church, castle, school, court, hospital, shopping center, ...)
