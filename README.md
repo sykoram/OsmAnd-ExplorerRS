@@ -20,6 +20,7 @@
     - no shield/icon on zoom 12, option to completely hide them
     - prettier hiking routes (removed cap=ROUND)
 - improved railways styles (trains, trams...)
+- improve mountain area and valley text
 - less visible:
     - smaller power tower icons
     - hide power=substation text (at least try to)

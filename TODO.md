@@ -1,15 +1,19 @@
 # TODO
+- smaller text
+    - contour lines on lower zoom
+
+- more visible cableways (and from zoom 12)
+- mountain polygon color/texture from zoom 12/13
+- lakes:
+    - name visible from zoom 10/11/12 (maybe higher priority?)
+    - gulf name more visible than lake name? (Lipno: zoom 9--12)
+    - ferries: lower name priority (Lago di Garda not displayed)
 - hiking routes (+others?)
-    - smaller text?
+    - smaller text? + disable on zoom 12 (+13?)
 - buildings
     - from zoom 16 (all!)
     - no/less visible borders
 - some roads in tunnels not shown?
-- zoom 12 (Dolomiti)
-    - smaller text for mountain ranges
-    - higher priority for municipality names!
-- smaller text
-    - contour lines on lower zoom
 - via ferrata?
 - option for subway (and public transport in general?)
     - zoom 12-16?

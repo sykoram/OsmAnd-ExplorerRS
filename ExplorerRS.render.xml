@@ -722,6 +722,56 @@
 				</switch>
 			</switch>
 		</switch>
+
+		<!-- mountains,...: modified from default.render (from line ~4920) -->
+		<switch textColor="#654321" textDy="7" textWrapWidth="25" textHaloColor="#aaf1eae4" textHaloRadius="$textHaloRadius" textItalic="true">
+			<switch>
+				<!-- ...peak, volcano, hill, cliff... -->
+				<switch tag="natural" value="valley" nameTag="" textOnPath="true" textColor="#356B25" textHaloRadius="3" textDy="0" textOrder="43">
+					<case minzoom="17" textSize="20" />
+					<case minzoom="16" textSize="18" />
+					<case minzoom="15" textSize="15" />
+					<case minzoom="14" textSize="13" />
+					<case moreDetailed="true" minzoom="13" textSize="13" />
+					<case moreDetailed="true" minzoom="12" textSize="11" />
+					<!-- <case moreDetailed="true" minzoom="6" textSize="10"/> -->
+					<case moreDetailed="true" minzoom="11" textSize="10"/>
+					<case moreDetailed="true" maxzoom="10" disable="true"/>
+				</switch>
+				<!-- ...gorge, couloir... -->
+				<switch>
+					<case tag="region:type" value="mountain_area" nameTag=""/>
+					<case tag="natural" value="plateau" nameTag=""/>
+					<apply_if minzoom="10" maxzoom="10" textSize="13" />
+					<apply_if minzoom="11" maxzoom="11" textSize="14" />
+					<apply_if minzoom="12" maxzoom="12" textSize="15" />
+					<apply textHaloRadius="5" textOrder="130" textDy="0"/>
+					<apply_if maxzoom="10" moreDetailed="true" textOrder="6"/> <!-- Only if region:type is available at z10- -->
+					<apply_if moreDetailed="true" textOrder="40"/>
+				</switch>
+				<!-- ...drystream, whitewater, saddle, crater, cave_entrance... -->
+				<apply_if nightMode="true" textColor="#ffcc9b" textHaloColor="#774d2803"/>
+				<apply_if legend="true" textDy="0"/>
+			</switch>
+			<apply_if engine_v1="false" textDy="0"/>
+			<apply_if additional="ele_limit=200" textOrder="83"/>
+			<apply_if additional="ele_limit=500" textOrder="82"/>
+			<apply_if additional="ele_limit=1000" textOrder="81"/>
+			<apply_if additional="ele_limit=1500" textOrder="80"/>
+			<apply_if additional="ele_limit=2000" textOrder="79"/>
+			<apply_if additional="ele_limit=2500" textOrder="78"/>
+			<apply_if additional="ele_limit=3000" textOrder="77"/>
+			<apply_if additional="ele_limit=3500" textOrder="76"/>
+			<apply_if additional="ele_limit=4000" textOrder="75"/>
+			<apply_if additional="ele_limit=4500" textOrder="74"/>
+			<apply_if additional="ele_limit=5000" textOrder="73"/>
+			<apply_if additional="ele_limit=5500" textOrder="72"/>
+			<apply_if additional="ele_limit=6000" textOrder="71"/>
+			<apply_if additional="ele_limit=6500" textOrder="70"/>
+			<apply_if additional="ele_limit=7000" textOrder="69"/>
+			<apply_if additional="ele_limit=7500" textOrder="68"/>
+			<apply_if additional="ele_limit=9000" textOrder="67"/>
+		</switch>
 	</text>
 
 	<!-- street lighting -->
