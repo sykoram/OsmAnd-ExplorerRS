@@ -21,7 +21,7 @@
     - prettier hiking routes (removed cap=ROUND)
 - improved railways styles (trains, trams...)
 - improved aerialways styles (cable cars, lifts...)
-- improved mountain area and valley text
+- improved mountain area, valley and water texts
 - less visible:
     - smaller power tower icons
     - hide power=substation text (at least try to)

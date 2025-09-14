@@ -2,12 +2,11 @@
 - smaller text
     - contour lines on lower zoom
 
-- more visible cableways (and from zoom 12)
 - mountain polygon color/texture from zoom 12/13
 - lakes:
     - name visible from zoom 10/11/12 (maybe higher priority?)
     - gulf name more visible than lake name? (Lipno: zoom 9--12)
-    - ferries: lower name priority (Lago di Garda not displayed)
+    - OPEN ISSUE / PR: add additional="water=lake" etc?
 - hiking routes (+others?)
     - smaller text? + disable on zoom 12 (+13?)
 - buildings

@@ -28,6 +28,16 @@
 		</case>
 	</renderingAttribute>
 
+	<renderingConstant name="waterTextHaloRadiusDay" value="1"/>
+	<renderingAttribute name="waterTextColor">
+		<case nightMode="true" attrColorValue="#7FC4D9"/>
+		<case attrColorValue="#ffffff"/>
+	</renderingAttribute>
+	<renderingAttribute name="waterTextHaloColor">
+		<case nightMode="true" attrColorValue="#994563a7"/>
+		<case attrColorValue="#BB55B4D4"/>
+	</renderingAttribute>
+
 	<renderingAttribute name="placeStateProvinceTextColor">
 		<case attrColorValue="#505050">
 			<apply_if nightMode="true" attrColorValue="#cccccccc"/>
@@ -256,6 +266,11 @@
 	<renderingConstant name="cyclewayStrokeWidth" value="1:1"/>
 	<renderingConstant name="cyclewayPathEffect" value="7_3"/>
 	
+	<renderingAttribute name="routeFerryColor">
+		<case nightMode="true" attrColorValue="#185499"/>
+		<case attrColorValue="#53A3BE"/>
+	</renderingAttribute>
+
 	<!-- access colors copied from render.default -->
 	<renderingAttribute name="accessPrivateColor">
 		<case nightMode="true" attrColorValue="#B45D5D"/>
@@ -772,6 +787,38 @@
 			<apply_if additional="ele_limit=7500" textOrder="68"/>
 			<apply_if additional="ele_limit=9000" textOrder="67"/>
 		</switch>
+
+		<switch>
+			<!-- Water: from default.render -->
+			<switch textColor="$waterTextColor" textHaloRadius="$waterTextHaloRadiusDay" textHaloColor="$waterTextHaloColor" textSize="12" textItalic="true">
+				<!-- ...ocean... -->
+				<switch nameTag="">
+					<!-- ...sea... -->
+					<!-- <case minzoom="6" tag="natural" value="water" textWrapWidth="17" textOrder="178" intersectionSizeFactor="1.7"/> -->
+					<case minzoom="6" tag="natural" value="water" textWrapWidth="17" textOrder="131"/>
+					<!-- TODO: distinguish between lakes, rivers,... -->
+				</switch>
+				<!-- ...bay, stream,... -->
+				<apply_if engine_v1="false" textDy="0"/>
+			</switch>
+			<!-- ... -->
+			<apply_if showAccess="true">
+				<switch>
+					<case additional="access=no"/>
+					<case additional="access=private"/>
+					<apply textColor="#C96B6B"/>
+					<apply_if nightMode="true" textColor="#B45D5D"/>
+				</switch>
+			</apply_if>
+			<apply_if legend="true" textDy="0"/>
+		</switch>
+
+		<!-- ferry: from default.render (line ~5350) -->
+		<!-- textOrder: >185 (waterway=canal) <206 (waterway=stream) -->
+		<case minzoom="3" tag="route" value="ferry" nameTag="" nameTag2="ref" textSize="11" textColor="#eef1eae4" textHaloRadius="$textHaloRadius" textHaloColor="$routeFerryColor" textWrapWidth="35" textOnPath="true" textOrder="200">
+			<apply_if minzoom="13" textSize="12"/>
+			<apply_if nightMode="true" textColor="#663e203e" textHaloColor="#ffcdfe"/>
+		</case>
 	</text>
 
 	<!-- street lighting -->
