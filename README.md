@@ -25,6 +25,7 @@
 - less visible:
     - smaller power tower icons
     - hide power=substation text (at least try to)
+- show street names for residental/living_street from zoom 15
 - show address/building names from zoom 16; show house numbers from zoom 18
 
 ### Recommended settings

@@ -24,8 +24,6 @@
     - lower priority:  information board, power=substation
 - border style - more visible between countries
 - man_made=cutline? (Milíčovský vrch)
-- no street names for residental/living_street at zoom 14
-    - also for track/path/footway/cycleway?
 - less vibrant "basic" green areas (grass?) -> more visible forests
 
 - improve night mode

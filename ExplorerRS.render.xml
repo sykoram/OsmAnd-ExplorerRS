@@ -757,7 +757,55 @@
 				</switch>
 			</switch>
 
+			<!-- disable texts for residential, living streets... at zoom 14 -->
+			<switch maxzoom="14" nameTag="">
+				<case tag="highway" value="unclassified"/>
+				<case minzoom="16" tag="area:highway" value="unclassified"/>
+				<case tag="highway" value="residential"/>
+				<case minzoom="16" tag="area:highway" value="residential"/>
+				<case tag="man_made" value="bridge"/>
+				<case tag="highway" value="service"/>
+				<case tag="highway" value="busway"/>
+				<case minzoom="17" tag="area:highway" value="service"/>
+				<case tag="highway" value="living_street"/>
+				<case tag="highway" value="escape"/>
+				<case tag="highway" value="proposed"/>
+				<case tag="highway" value="pedestrian"/>
+				<case tag="place" value="square"/>
+				<case tag="area:highway" value="pedestrian"/>
+				<apply disable="true"/>
+			</switch>
 
+			<!-- disable texts for tracks, cycleways, footways... on zoom 14: -->
+			<!-- <switch maxzoom="14">
+				<switch nameTag="">
+					<case minzoom="16" tag="area:highway" value="track"/>
+					<case minzoom="16" tag="area:highway" value="cycleway"/>
+					<case tag="cycleway" value="lane"/>
+					<case tag="cycleway" value="track"/>
+					<case tag="cycleway" value="shared_lane" />
+					<case tag="cycleway" value="opposite_lane"/>
+					<case tag="cycleway" value="share_busway"/>
+					<case tag="cycleway:both" value="lane"/>
+					<case tag="cycleway:both" value="track"/>
+					<case tag="cycleway:both" value="shared_lane"/>
+					<case tag="cycleway:both" value="share_busway"/>
+					<case tag="cycleway" value="opposite"/>
+					<case tag="highway" value="steps"/>
+					<case tag="highway" value="raceway"/>
+					<case tag="highway" value="road"/>
+				</switch>
+				<case tag="highway" value="track" nameTag=""/>
+				<case tag="highway" value="track" nameTag="ref"/>
+				<case tag="highway" value="cycleway" nameTag=""/>
+				<case tag="highway" value="cycleway" nameTag="ref"/>
+				<case tag="highway" value="path" nameTag=""/>
+				<case tag="highway" value="path" nameTag="ref"/>
+				<case tag="highway" value="bridleway" nameTag=""/>
+				<case tag="highway" value="bridleway" nameTag="ref"/>
+				<case tag="highway" value="via_ferrata"/>
+				<apply disable="true"/>
+			</switch> -->
 
 			<!-- mountains,...: modified from default.render (from line ~4920) -->
 			<switch textColor="#654321" textDy="7" textWrapWidth="25" textHaloColor="#aaf1eae4" textHaloRadius="$textHaloRadius" textItalic="true">
