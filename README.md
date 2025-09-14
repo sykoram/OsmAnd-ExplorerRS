@@ -72,4 +72,5 @@ The style has been also inspired by other styles:
     - `Hiking.render.xml`
 - [`TuristCZ.render.xml`](https://osmand.cz/blog/vykreslovac-turistcz-v-4)
 - [`eml.render.xml`](https://pastebin.com/7MystwDv)
+- [OpenStreetMap Carto](https://wiki.openstreetmap.org/wiki/OpenStreetMap_Carto)
 - [mapy.com](https://mapy.com)
