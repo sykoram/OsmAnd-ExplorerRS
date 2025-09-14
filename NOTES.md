@@ -140,6 +140,8 @@ sudo chmod 777 waydroid_osmand_rendering
 
 ## Interesting places
 - search with [overpass turbo](https://overpass-turbo.eu)
-- hiking route with layer=-1: Černý tunel, Moravský Krumlov
-- hiking route with layer=1: Starý davelský most, Davle
-- light_rail changes to tram: Gmunden Seebahnhof
+- many mountain areas, peaks and hiking routes: Dolomiti, IT
+- hiking route with layer=-1: Černý tunel, Moravský Krumlov, CZ
+- hiking route with layer=1: Starý davelský most, Davle, CZ
+- light_rail changes to tram: Gmunden Seebahnhof, AT
+- aerialways: Dachstein+Schladming, AT
