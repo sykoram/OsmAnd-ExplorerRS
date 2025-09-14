@@ -2,6 +2,7 @@
 - smaller text
     - contour lines on lower zoom
 
+- square: higher text priority
 - mountain polygon color/texture from zoom 12/13
 - lakes:
     - name visible from zoom 10/11/12 (maybe higher priority?)
