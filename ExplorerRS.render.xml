@@ -12,6 +12,9 @@
 	<renderingProperty attr="appMode" name="Rendering mode" description="Map optimization for respective User Profile" type="string" possibleValues="browse map,car,bicycle,pedestrian"/>
 	<renderingProperty attr="baseAppMode" name="Default Rendering mode" description="Map optimization for respective User Profile based on base (parent) profile" type="string" possibleValues="default, car, bicycle, pedestrian, public_transport, boat, ski"/>
 
+	<renderingProperty attr="detailedSubway" name="Detailed subway" description="More detailed subway"
+		type="boolean" possibleValues="" category="details"/>
+
 	<renderingConstant name="null" value="#00000000"/>
 
 	<renderingConstant name="otherAmenitiesTextColorDay" value="#444444"/>
@@ -468,6 +471,63 @@
 		<case attrColorValue="$null"/>
 	</renderingAttribute>
 
+	<renderingAttribute name="subwayLineDefaultColor">
+		<case nightMode="true" attrColorValue="#7b0000"/>
+		<case attrColorValue="#a24141"/>
+	</renderingAttribute>
+
+	<renderingAttribute name="subwayLineShadowColor">
+		<case attrColorValue="$defaultColor"/>
+	</renderingAttribute>
+
+	<renderingAttribute name="subwayRedColor">
+		<case attrColorValue="#ff0000"/>
+	</renderingAttribute>
+	<renderingAttribute name="subwayBrownColor">
+		<case nightMode="true" attrColorValue="#b46100"/>
+		<case attrColorValue="#ba7007"/>
+	</renderingAttribute>
+	<renderingAttribute name="subwayOrangeColor">
+		<case nightMode="true" attrColorValue="#ffb631"/>
+		<case attrColorValue="#ff7200"/>
+	</renderingAttribute>
+	<renderingAttribute name="subwayDarkyellowColor">
+		<case nightMode="true" attrColorValue="#737812"/>
+		<case attrColorValue="#afb61c"/>
+	</renderingAttribute>
+	<renderingAttribute name="subwayYellowColor">
+		<case nightMode="true" attrColorValue="#f3e615"/>
+		<case attrColorValue="#ffff00"/>
+	</renderingAttribute>
+	<renderingAttribute name="subwayLightgreenColor">
+		<case nightMode="true" attrColorValue="#95ff79"/>
+		<case attrColorValue="#6cb52b"/>
+	</renderingAttribute>
+	<renderingAttribute name="subwayGreenColor">
+		<case nightMode="true" attrColorValue="#38c012"/>
+		<case attrColorValue="#00842b"/>
+	</renderingAttribute>
+	<renderingAttribute name="subwayLightblueColor">
+		<case nightMode="true" attrColorValue="#7fe5ff"/>
+		<case attrColorValue="#2ec6ff"/>
+	</renderingAttribute>
+	<renderingAttribute name="subwayBlueColor">
+		<case nightMode="true" attrColorValue="#6d74ff"/>
+		<case attrColorValue="#4e4eff"/>
+	</renderingAttribute>
+	<renderingAttribute name="subwayPurpleColor">
+		<case nightMode="true" attrColorValue="#cd5efb"/>
+		<case attrColorValue="#a71de1"/>
+	</renderingAttribute>
+	<renderingAttribute name="subwayGrayColor">
+		<case nightMode="true" attrColorValue="#c6c6c6"/>
+		<case attrColorValue="#808080"/>
+	</renderingAttribute>
+	<renderingAttribute name="subwayBlackColor">
+		<case nightMode="true" attrColorValue="#000000"/>
+		<case attrColorValue="#333333"/>
+	</renderingAttribute>
+
 	<renderingAttribute name="railwayRailColor">
 		<case nightMode="true" attrColorValue="#35636F"/>
 		<!-- <case attrColorValue="#91908E"/> -->
@@ -670,14 +730,22 @@
 		</switch>
 	</order>
 
-	<!-- Less visible power towers -->
 	<point>
+		<!-- Less visible power towers -->
 		<case minzoom="14" tag="power" value="tower">
 			<case minzoom="14" maxzoom="14" icon="barrier_small_black_4" iconVisibleSize="2"/>
 			<case minzoom="15" maxzoom="15" icon="barrier_small_black_4" iconVisibleSize="3"/>
 			<case minzoom="16" maxzoom="16" icon="power_tower_small" iconVisibleSize="3"/>
 			<case minzoom="17" icon="power_tower_square" iconVisibleSize="7"/>
 		</case>
+
+		<!-- disable subway station circles on z12 -->
+		<switch subwayMode="true" detailedSubway="false" maxzoom="12" tag="railway" value="station">
+			<!-- <case additional="route=subway"/>-->
+			<case additional="station=subway"/>
+			<case additional="network=rer"/>
+			<apply disable="true"/>
+		</switch>
 	</point>
 
 	<!-- Buildings text (names, house numbers) -->
@@ -888,6 +956,17 @@
 				<apply_if minzoom="13" textSize="12"/>
 				<apply_if nightMode="true" textColor="#663e203e" textHaloColor="#ffcdfe"/>
 			</case>
+
+			<!-- subway: hide station names until zoom 14 (defaul.render: line ~5480) -->
+			<switch subwayMode="true" detailedSubway="false">
+				<!-- <switch maxzoom="13" tag="railway" value="station" nameTag=""> -->
+				<switch maxzoom="14" tag="railway" value="station" nameTag="">
+					<!-- <case additional="route=subway"/>-->
+					<case additional="network=rer"/>
+					<case additional="station=subway"/>
+					<apply disable="true"/>
+				</switch>
+			</switch>
 
 			<!-- applied to all text -->
 			<apply_if additional="tourism=yes" nameTag="">
@@ -1247,7 +1326,51 @@
 		</switch>
 
 		<!-- Railways: modified some parts from default.render (line ~11440) -->
-		<!-- ...subway... -->
+		<!-- display only subway lines with explicit colors -->
+		<switch subwayMode="true" detailedSubway="false">
+			<case minzoom="11" tag="railway" value="subway">
+				<!-- <apply color="#999999" strokeWidth="1:1"/> -->
+			</case>
+			<case minzoom="11" tag="railway" value="rail" additional="route=subway">
+				<!-- <apply color="#999999" strokeWidth="1:1"/> -->
+			</case>
+			<case minzoom="11" tag="railway" value="light_rail" additional="route=subway">
+				<!-- <apply color="#999999" strokeWidth="1:1"/> -->
+			</case>
+			<case minzoom="11" tag="railway" value="rail" additional="network=rer">
+				<!-- <apply pathEffect="" cap="ROUND" color_2="#ffffff">
+					<apply_if nightMode="true" color_2="#333333"/>
+				</apply> -->
+			</case>
+			<!-- <apply_if minzoom="11" color="$subwayLineDefaultColor" cap="ROUND"/> -->
+			<apply_if minzoom="11" cap="ROUND"/>
+			<apply_if pathEffect="">
+				<case additional="color_red" color="$subwayRedColor"/>
+				<case additional="color_brown" color="$subwayBrownColor"/>
+				<case additional="color_orange" color="$subwayOrangeColor"/>
+				<case additional="color_darkyellow" color="$subwayDarkyellowColor"/>
+				<case additional="color_yellow" color="$subwayYellowColor" color__1="#b0b200"/>
+				<case additional="color_lightgreen" color="$subwayLightgreenColor"/>
+				<case additional="color_green" color="$subwayGreenColor"/>
+				<case additional="color_lightblue" color="$subwayLightblueColor"/>
+				<case additional="color_blue" color="$subwayBlueColor"/>
+				<case additional="color_purple" color="$subwayPurpleColor"/>
+				<case additional="color_gray" color="$subwayGrayColor"/>
+				<case additional="color_black" color="$subwayBlackColor">
+					<case nightMode="true" color__1="#cccccc"/>
+				</case>
+				<apply_if minzoom="11" maxzoom="11" strokeWidth="1.2:1.2" strokeWidth__1="2:2"/>
+				<apply_if minzoom="12" maxzoom="12" strokeWidth="1.5:1.5" strokeWidth__1="2.3:2.3"/>
+				<apply_if minzoom="13" maxzoom="13" strokeWidth="1.8:1.8" strokeWidth__1="2.8:2.8"/>
+				<apply_if minzoom="14" maxzoom="14" strokeWidth="1.8:1.8" strokeWidth__1="2.8:2.8"/>
+				<apply_if minzoom="15" maxzoom="16" strokeWidth="1.8:1.8" strokeWidth__1="2.8:2.8"/>
+				<!-- <apply_if minzoom="17" disable="true"/> -->
+				<apply_if minzoom="17" strokeWidth="1:1" strokeWidth__1="1.8:1.8" pathEffect="8_10" pathEffect__1="8_10" cap="SQUARE"/>
+				<!-- <apply_if minzoom="17" maxzoom="18" strokeWidth="2.5:2.5" strokeWidth__1="3.2:3.2" strokeWidth_2="1.2:1.2"/> -->
+				<!-- <apply_if minzoom="19" strokeWidth="3.5:3.5" strokeWidth__1="5:5" strokeWidth_2="2:2"/> -->
+				<apply_if additional="service=" disable="true"/>
+			</apply_if>
+		</switch>
 		<!-- ...rail... -->
 		<switch>
 			<switch minzoom="13">

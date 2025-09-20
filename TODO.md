@@ -15,8 +15,6 @@
     - no/less visible borders
 - some roads in tunnels not shown?
 - via ferrata?
-- option for subway (and public transport in general?)
-    - zoom 12-16?
 - mark important buildings (church, castle, school, court, hospital, shopping center, ...)
 - maybe smaller icons (smaller padding? not in circle?)
 - change icon priority? - TODO

@@ -15,11 +15,12 @@
         - zoom >=14: all paths
     - rendered under roads, otherwise the map becomes cluttered with sidewalks etc. (zoom 14--16)
 - hiking (+fitness+running) routes
-    - rendered under roads&paths (also layer-aware), option to switch back to default
+    - rendered under roads&paths (also layer-aware), option to switch back to default (*Details - Hiking routes rendered on top of roads/paths*)
     - thinner on zoom 12--14
-    - no shield/icon on zoom 12, option to completely hide them
+    - no shield/icon on zoom 12, option to completely hide them (*Hide - Shields: ...*)
     - prettier hiking routes (removed cap=ROUND)
 - improved railways styles (trains, trams...)
+- improved subway styles: more subtle, option to switch back to default (*Details - Detailed subway*)
 - improved aerialways styles (cable cars, lifts...)
 - improved mountain area, valley and water texts
 - less visible:
@@ -28,9 +29,21 @@
 - show street names for residental/living_street from zoom 15
 - show address/building names from zoom 16; show house numbers from zoom 18
 
-### Recommended settings
-- Map rendering - Details - More Details: yes (if desired)
-- Map rendering - Hide - Boundaries: yes
+### My settings recommendations:
+- When creating a new profile
+    - View angle: Rest & navigation position
+- Configure map:
+    - Show
+        - Transport - Subway routes: yes
+    - Topography
+        - Contour lines: on
+        - Terrain: hillshade
+    - Routes
+        - Hiking routes: on
+    - Map rendering
+        - Map style: ExplorerRS
+        - Details - More Details: yes (if desired)
+        - Hide - Boundaries: yes
 
 
 
