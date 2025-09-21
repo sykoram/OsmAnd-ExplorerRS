@@ -753,7 +753,7 @@
 					<case tag="disused:building" value="" nameTag=""/>
 					<case hideHouseNumbers="false" tag="building" value="" nameTag="" nameTag2="addr:housenumber"/>
 					<case hideHouseNumbers="false" tag="building" value="" nameTag="addr:housename" nameTag2="addr:housenumber"/>
-					<apply_if maxzoom="15" textSize="0" textMinDistance="40" intersectionMargin="20"/>
+					<apply_if maxzoom="15" textSize="0" textMinDistance="40" intersectionMargin="5"/>
 					<apply_if minzoom="16" maxzoom="18" textSize="12"/>
 					<apply_if minzoom="19" textSize="14"/>
 					<apply_if engine_v1="true" textDy="7"/>
@@ -762,7 +762,7 @@
 				<switch>
 					<case hideHouseNumbers="true" tag="building" value="" nameTag="addr:housename"/>
 					<case hideHouseNumbers="false" tag="building" value="" nameTag="addr:housenumber" />
-					<apply_if maxzoom="17" textSize="0" textMinDistance="40" intersectionMargin="20"/>
+					<apply_if maxzoom="17" textSize="0" textMinDistance="40" intersectionMargin="5"/>
 					<apply_if minzoom="18" maxzoom="19" textSize="10"/>
 					<apply_if minzoom="20" textSize="13"/>
 					<apply_if engine_v1="true" textDy="7"/>
@@ -773,9 +773,9 @@
 					<case hideHouseNumbers="false" tag="addr:housenumber" value="" nameTag="addr:housename" nameTag2="addr:housenumber"/>
 					<case hideHouseNumbers="false" tag="addr:housenumber" value="" nameTag="addr:housenumber"/>
 					<apply_if engine_v1="false">
-						<case maxzoom="17" textSize="0" intersectionMargin="20"/>
-						<case minzoom="18" maxzoom="19" textSize="10" intersectionMargin="20"/>
-						<case minzoom="20" textSize="13" intersectionMargin="20"/>
+						<case maxzoom="17" textSize="0" intersectionMargin="5"/>
+						<case minzoom="18" maxzoom="19" textSize="10" intersectionMargin="5"/>
+						<case minzoom="20" textSize="13" intersectionMargin="5"/>
 					</apply_if>
 					<apply_if engine_v1="true" textDy="7" intersectionMargin="5">
 						<case maxzoom="17" textSize="0"/>
