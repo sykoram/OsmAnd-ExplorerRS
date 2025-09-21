@@ -1,6 +1,8 @@
 # TODO
 - smaller text
     - contour lines on lower zoom
+- power=substations - disable text (how?!)
+    - probably got it work on points, but not on buildings
 
 - square: higher text priority
 - mountain polygon color/texture from zoom 12/13
@@ -27,7 +29,6 @@
 - improve night mode
 
 - screenshots
-- installing
 
 
 ## Don't know how / too much hassle

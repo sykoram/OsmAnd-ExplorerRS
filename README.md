@@ -19,31 +19,42 @@
     - thinner on zoom 12--14
     - no shield/icon on zoom 12, option to completely hide them (*Hide - Shields: ...*)
     - prettier hiking routes (removed cap=ROUND)
-- improved railways styles (trains, trams...)
-- improved subway styles: more subtle, option to switch back to default (*Details - Detailed subway*)
-- improved aerialways styles (cable cars, lifts...)
 - improved mountain area, valley and water texts
+- improved railways styles (trains, trams...)
+- improved subway styles: more subtle, no service rails, option to switch back to default (*Details - Detailed subway*)
+- improved aerialways styles (cable cars, lifts...)
+- show street names for residental/living_street from zoom 15
+- show address/building names from zoom 16; show house numbers from zoom 18
 - less visible:
     - smaller power tower icons
     - hide power=substation text (at least try to)
-- show street names for residental/living_street from zoom 15
-- show address/building names from zoom 16; show house numbers from zoom 18
+
+
+
+## Installation
+
+1) Download `ExplorerRS.render.xml` to your device
+2) Import it into OsmAnd:
+    - either by opening the file with OsmAnd from the file explorer
+    - or in OsmAnd menu: *Maps & Resources - Local - Rendering styles - Three dots - Import*
+3) Set the map style for the selected profile:
+    - *Configure profile - Configure map - Map rendering - Map style: ExplorerRS*
 
 ### My settings recommendations:
-- When creating a new profile
+- Profile appearance:
     - View angle: Rest & navigation position
 - Configure map:
     - Show
-        - Transport - Subway routes: yes
+        - Transport - Subway routes: on
     - Topography
-        - Contour lines: on
+        - Contour lines: on (Color scheme: brown / dark brown)
         - Terrain: hillshade
     - Routes
         - Hiking routes: on
     - Map rendering
-        - Map style: ExplorerRS
-        - Details - More Details: yes (if desired)
-        - Hide - Boundaries: yes
+        - **Map style: ExplorerRS**
+        - Details - More Details: on (if desired)
+        - Hide - Boundaries: on
 
 
 
@@ -51,7 +62,7 @@
 
 ### First time setup
 
-Setup [Waydroid](https://waydro.id/), install OsmAnd~ from F-Droid, setup OsmAnd: create `ExplorerRS` profile, set as default, optionally add developer widgets (zoom).
+Setup [Waydroid](https://waydro.id/), install OsmAnd~ from F-Droid, setup OsmAnd: create `ExplorerRS` profile, set as default, optionally add developer widgets (zoom). You might need to switch the rendering engine to version 1, which has better performance, but remember the engines behave and render stuff slightly differently.
 
 To import the rendering for the first time:
 ```

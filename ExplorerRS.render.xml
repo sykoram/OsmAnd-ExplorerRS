@@ -748,7 +748,6 @@
 		</switch>
 	</point>
 
-	<!-- Buildings text (names, house numbers) -->
 	<text>
 		<!-- hide completely: power=substation -->
 		<switch>
