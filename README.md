@@ -14,7 +14,7 @@
         - zoom 13: tracks, cycleways
         - zoom >=14: all paths
 - hiking (+fitness+running) routes - improved styles, more visible colors
-    - rendered under roads&paths (layer-aware), option to switch back to default (*Details - Hiking routes rendered on top of roads/paths*)
+    - rendered under roads&paths (also layer-aware), option to switch back to default (*Details - Hiking routes rendered on top of roads/paths*)
     - no shield/icon on zoom 12, option to completely hide them (*Hide - Shields: ...*)
 - mountain area, valley and water - improved texts
 - railways (trains, trams...) - improved styles (more visible)
@@ -29,6 +29,8 @@
 
 
 ## Screenshots
+
+Default style (left) vs **ExplorerRS (right)**
 
 Hiking routes overview:
 <img src="./screenshots/sumava.png">
