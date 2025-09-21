@@ -1705,43 +1705,43 @@
 	</renderingAttribute>
 	<renderingAttribute name="osmcBlueColor">
 		<case engine_v1="true" attrColorValue="#660000ff"/>
-		<case attrColorValue="#440000ff"/>
+		<case attrColorValue="#550000ff"/>
 	</renderingAttribute>
 	<renderingAttribute name="osmcGreenColor">
-		<case engine_v1="true" attrColorValue="#6600ff00"/>
-		<case attrColorValue="#4400ff00"/>
+		<case engine_v1="true" attrColorValue="#6600aa00"/>
+		<case attrColorValue="#6600aa00"/>
 	</renderingAttribute>
 	<renderingAttribute name="osmcRedColor">
 		<case engine_v1="true" attrColorValue="#66ff0000"/>
-		<case attrColorValue="#44ff0000"/>
+		<case attrColorValue="#66ff0000"/>
 	</renderingAttribute>
 	<renderingAttribute name="osmcYellowColor">
-		<case engine_v1="true" attrColorValue="#99ffff00"/>
-		<case attrColorValue="#44ffff00"/>
+		<case engine_v1="true" attrColorValue="#99ffd000"/>
+		<case attrColorValue="#77ffd000"/>
 	</renderingAttribute>
 	<renderingAttribute name="osmcOrangeColor">
-		<case engine_v1="true" attrColorValue="#88ffba00"/>
-		<case attrColorValue="#66ffba00"/>
+		<case engine_v1="true" attrColorValue="#88ff8800"/>
+		<case attrColorValue="#77ff8800"/>
 	</renderingAttribute>
 	<renderingAttribute name="osmcBrownColor">
 		<case engine_v1="true" attrColorValue="#66705409"/>
-		<case attrColorValue="#44705409"/>
+		<case attrColorValue="#66705409"/>
 	</renderingAttribute>
 	<renderingAttribute name="osmcPurpleColor">
 		<case engine_v1="true" attrColorValue="#66ab00d6"/>
-		<case attrColorValue="#44ab00d6"/>
+		<case attrColorValue="#55ab00d6"/>
 	</renderingAttribute>
 	<renderingAttribute name="osmcPinkColor">
 		<case engine_v1="true" attrColorValue="#66F765AF"/>
-		<case attrColorValue="#44F765AF"/>
+		<case attrColorValue="#66F765AF"/>
 	</renderingAttribute>
 	<renderingAttribute name="osmcTealColor">
 		<case engine_v1="true" attrColorValue="#66007C7C"/>
-		<case attrColorValue="#44007C7C"/>
+		<case attrColorValue="#66007C7C"/>
 	</renderingAttribute>
 	<renderingAttribute name="osmcDefaultColor">
 		<case engine_v1="true" attrColorValue="#660058a2"/>
-		<case attrColorValue="#280058a2"/>
+		<case attrColorValue="#440058a2"/>
 	</renderingAttribute>
 
 	<renderingAttribute name="osmcRedTextColor">
@@ -2874,9 +2874,9 @@
 				</apply>
 			</switch>
 			<apply_if hikingRoutesOSMC="walkingRoutesScopeOSMC" color="$null"/>
-			<apply_if minzoom="12" maxzoom="12" strokeWidth="2.5:2.5"/>
-			<apply_if minzoom="13" maxzoom="13" strokeWidth="3.5:3.5"/>
-			<apply_if minzoom="14" maxzoom="14" strokeWidth="5.6:5.6"/>
+			<apply_if minzoom="12" maxzoom="12" strokeWidth="3:3"/>
+			<apply_if minzoom="13" maxzoom="13" strokeWidth="4:4"/>
+			<apply_if minzoom="14" maxzoom="14" strokeWidth="6:6"/>
 			<apply_if minzoom="15" maxzoom="15" strokeWidth="8:8"/>
 			<apply_if minzoom="16" maxzoom="16" strokeWidth="10:10"/>
 			<apply_if minzoom="17" maxzoom="17" strokeWidth="11:11"/>
