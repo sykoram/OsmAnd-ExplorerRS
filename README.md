@@ -7,24 +7,21 @@
 ## Features
 
 - pastel colors of larger areas (forests,...) to let other objects stand out
-- foot & cycle paths, tracks - more visible, but hopefully not overwhelming
-    - custom styles
+- foot & cycle paths, tracks - improved styles (more visible, but hopefully not overwhelming)
+    - rendered under roads, otherwise the map becomes cluttered with sidewalks etc. (zoom 14--16)
     - visibility with moreDetailed="true":
         - zoom <=12: nothing
         - zoom 13: tracks, cycleways
         - zoom >=14: all paths
-    - rendered under roads, otherwise the map becomes cluttered with sidewalks etc. (zoom 14--16)
-- hiking (+fitness+running) routes
-    - rendered under roads&paths (also layer-aware), option to switch back to default (*Details - Hiking routes rendered on top of roads/paths*)
-    - thinner on zoom 12--14
+- hiking (+fitness+running) routes - improved styles, more visible colors
+    - rendered under roads&paths (layer-aware), option to switch back to default (*Details - Hiking routes rendered on top of roads/paths*)
     - no shield/icon on zoom 12, option to completely hide them (*Hide - Shields: ...*)
-    - prettier hiking routes (removed cap=ROUND)
-- improved mountain area, valley and water texts
-- improved railways styles (trains, trams...)
-- improved subway styles: more subtle, no service rails, option to switch back to default (*Details - Detailed subway*)
-- improved aerialways styles (cable cars, lifts...)
-- show street names for residental/living_street from zoom 15
-- show address/building names from zoom 16; show house numbers from zoom 18
+- mountain area, valley and water - improved texts
+- railways (trains, trams...) - improved styles (more visible)
+- subway - improved styles: more subtle, no service rails, option to switch back to default (*Details - Detailed subway*)
+- aerialways (cable cars, lifts...) - improved styles (more visible)
+- street names for residental/living_street - show from zoom 15
+- buildings - show names from zoom 16, house numbers from zoom 18
 - less visible:
     - smaller power tower icons
     - hide power=substation text (at least try to)
@@ -97,7 +94,7 @@ Then, simply open OsmAnd again.
 
 
 
-## Thanks
+## Credits
 
 The ExplorerRS rendering style is mainly based on [UniMap](https://github.com/basings/OsmAnd-custom-map-styles/blob/main/UniMap.xml) and [routes.addon.render.xml](https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles/routes.addon.render.xml).
 
