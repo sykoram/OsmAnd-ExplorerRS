@@ -6,7 +6,7 @@
 
 ## Features
 
-- less vibrant colors of larger areas (forests,...)
+- pastel colors of larger areas (forests,...) to let other objects stand out
 - foot & cycle paths, tracks - more visible, but hopefully not overwhelming
     - custom styles
     - visibility with moreDetailed="true":
@@ -28,6 +28,22 @@
 - less visible:
     - smaller power tower icons
     - hide power=substation text (at least try to)
+
+
+
+## Screenshots
+
+Hiking routes overview:
+<img src="./screenshots/sumava.png">
+
+Hiking routes, paths, cable car:
+<img src="./screenshots/snezka.png">
+
+City streets, sidewalks, parks, cycleways:
+<img src="./screenshots/praha5.png">
+
+City overview with subway:
+<img src="./screenshots/praha.png">
 
 
 
