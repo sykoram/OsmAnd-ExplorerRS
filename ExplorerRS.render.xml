@@ -216,7 +216,7 @@
 	</renderingAttribute>
 	<renderingConstant name="trackStrokeWidth" value="1:1"/>
 	<renderingConstant name="trackWithSurfaceStrokeWidth" value="1:1"/>
-	<renderingConstant name="trackLowZoomStrokeWidth" value="0.7"/>
+	<renderingConstant name="trackLowZoomStrokeWidth" value="0.5"/>
 	<renderingConstant name="trackLowZoomStrokeWidth2" value="1.1"/>
 	<renderingConstant name="trackPathEffect" value="5_2_2_2"/>
 	<renderingConstant name="trackBridgeWidth" value="4:2.5"/>
@@ -574,23 +574,6 @@
 			
 			<!-- Line 11-100 -->
 			<switch area="false" objectType="2" order="80">
-				<!-- highways, railways -->
-				<switch>
-					<!-- change maxzoom - a bit less details with moreDetailed=true -->
-					<switch>
-						<case tag="highway" value="unclassified" maxzoom="11" order="-1" optimize="read"/>
-						<case tag="highway" value="residential" maxzoom="12" order="-1" optimize="read"/>
-						<case tag="highway" value="service" maxzoom="12" order="-1" optimize="read"/>
-						<case tag="highway" value="track" maxzoom="12" order="-1" optimize="read"/>
-						<case tag="highway" value="footway" maxzoom="13" order="-1" optimize="read"/>
-						<case tag="highway" value="path" maxzoom="13" order="-1" optimize="read"/>
-						<case tag="highway" value="bridleway" maxzoom="13" order="-1" optimize="read"/>
-						<case tag="highway" value="cycleway" maxzoom="12" order="-1" optimize="read"/>
-						<case tag="railway" value="rail" maxzoom="10" order="-1" optimize="read"/>
-						<case tag="railway" value="light_rail" maxzoom="12" order="-1" optimize="read"/>
-					</switch>
-				</switch>
-
 				<!-- public transport, railways, natural=*, waterway=*, boundaries, track/foot/cycle ways, ... -->
 				<switch>
 					<case tag="highway" value="track" order="64">
@@ -1001,13 +984,19 @@
 	</polygon>
 
 	<line>
+		<!-- highway=residential,service: no line for zoom <=12 -->
+		<case maxzoom="12" tag="highway" value="residential"/>
+		<case maxzoom="12" tag="highway" value="service"/>
+		
 		<!-- track, path, footway, cycleway...: copied some parts from default.render (from line ~10570), modified -->
 		<switch>
 			<switch>
 				<switch strokeWidth="0.1">
 					<case minzoom="$trackMinZoom" tag="highway" value="track">
 						<switch moreDetailed="true">
-							<case maxzoom="12" strokeWidth_5="$trackLowZoomStrokeWidth"/>
+							<!-- no line for zoom <=12 -->
+							<case maxzoom="12"/>
+							<!-- <case maxzoom="12" strokeWidth_5="$trackLowZoomStrokeWidth"/> -->
 							<case maxzoom="13" strokeWidth_5="$trackLowZoomStrokeWidth2"/>
 							<apply pathEffect_5=""/>
 						</switch>
@@ -1035,7 +1024,8 @@
 						<case minzoom="$pathMinZoom" tag="highway" value="path">
 							<case baseAppMode="bicycle" minzoom="14" additional="bicycle=designated" color_5="$cyclewayColor" pathEffect_5="4_2" strokeWidth_5="1:1"/>
 							<case moreDetailed="true" maxzoom="14" color_5="$pathColor" pathEffect_5="$pathPathEffect">
-								<case maxzoom="12" strokeWidth_5="0.3" color_5="$pathLowZoomColor" pathEffect_5="$pathLowZoomPathEffect"/>
+								<!-- no line for zoom <=13 -->
+								<case maxzoom="13"/>
 								<case maxzoom="13" color_5="$pathLowZoomColor" pathEffect_5="$pathLowZoomPathEffect">
 									<case baseAppMode="pedestrian" strokeWidth_5="0.5"/>
 									<case strokeWidth_5="$pathLowZoomStrokeWidth"/>
@@ -1062,6 +1052,8 @@
 							<case baseAppMode="bicycle" minzoom="14" additional="bicycle=designated" color_5="$cyclewayColor" pathEffect_5="$cyclewayLowZoomPathEffect" strokeWidth_5="$cyclewayLowZoomStrokeWidth"/>
 							<switch maxzoom="15">
 								<case moreDetailed="true">
+									<!-- no line for zoom <=13 -->
+									<case maxzoom="13"/>
 									<case layer="1" strokeWidth_5="0.6"/>
 									<case additional="layer=2" strokeWidth_5="0.6"/>
 									<case additional="layer=3" strokeWidth_5="0.6"/>
@@ -1119,7 +1111,9 @@
 					<case minzoom="$cyclewayMinZoom" tag="highway" value="cycleway">
 						<!-- show cycleways also at lower zooms -->
 						<switch moreDetailed="true">
-							<case maxzoom="12" strokeWidth_5="$cyclewayLowZoomStrokeWidth"/>
+							<!-- no line for zoom <=12 -->
+							<case maxzoom="12"/>
+							<!-- <case maxzoom="12" strokeWidth_5="$cyclewayLowZoomStrokeWidth"/> -->
 							<case maxzoom="13" strokeWidth_5="$cyclewayLowZoomStrokeWidth2"/>
 							<apply pathEffect_5="$cyclewayLowZoomPathEffect"/>
 						</switch>
@@ -1133,6 +1127,8 @@
 					</case>
 
 					<!-- ...steps, elevator, bridleway... -->
+					<!-- no line for zoom <=13 -->
+					<case maxzoom="13" tag="highway" value="bridleway"/>
 
 					<switch minzoom="15">
 						<case tag="abandoned:highway" value="track"/>

@@ -62,7 +62,7 @@
 
 ### First time setup
 
-Setup [Waydroid](https://waydro.id/), install OsmAnd~ from F-Droid, setup OsmAnd: create `ExplorerRS` profile, set as default, optionally add developer widgets (zoom). You might need to switch the rendering engine to version 1, which has better performance, but remember the engines behave and render stuff slightly differently.
+Setup [Waydroid](https://waydro.id/), install OsmAnd~ from F-Droid, setup OsmAnd: create `ExplorerRS` profile, set as default, optionally add developer widgets (zoom). You might want to switch the rendering engine to version 1, which has better performance, but remember the engines behave and render stuff slightly differently so what works for one might not work for the other!
 
 To import the rendering for the first time:
 ```
